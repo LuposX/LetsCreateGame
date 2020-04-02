@@ -12,15 +12,14 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		try{
-			AppGameContainer app = new AppGameContainer(new Game("Jump�n Run Game"));
+			AppGameContainer app = new AppGameContainer(new Game("Dungon Game"));
 			app.setDisplayMode(960, 480, false);
 			app.setTargetFrameRate(60);
 			app.setVSync(true);
 			app.start();
 			
-			System.out.println("Sand");
-			
 		} catch(SlickException e){
+			System.err.println("Fehler beim Initialisieren des App Containers");
 			e.printStackTrace();
 		}	
 	}
