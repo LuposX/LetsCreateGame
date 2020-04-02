@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import entities.DrawEntity;
 import gateways.GatewayGraphic;
 import gateways.GatewayLogic;
 
@@ -47,6 +48,21 @@ public class Ingame extends BasicGameState{
 				
 				g.fillRect(x*blockWidth, y*blockHeight, blockWidth, blockHeight);
 			}
+		}
+		//Ende: Blöcke
+		
+		//Entities
+		for(DrawEntity de : GatewayGraphic.getEntities()) {
+			//Für jedes Entity
+			
+			//Todo: statt Farbe, Textur
+			g.setColor(Color.white);
+			switch(de.drawID) {
+				case 0: g.setColor(Color.yellow); break;
+				case 1: g.setColor(Color.pink); break;
+			}
+			
+			g.fillOval(de.drawX*blockWidth, de.drawY*blockHeight, 2*blockWidth, 2*blockHeight);
 		}
 	}
 
