@@ -21,11 +21,5 @@ public class Main {
 		} catch(SlickException e){
 			e.printStackTrace();
 		}	
-		System.out.println("Hallo Simon");
-		System.out.println("Hallo Karl");
-		System.out.println("Hallo Karl");
-		System.out.println("Hallo Karl");
-		System.out.println("Hallo Karl");
-		System.out.println("Hallo 1234");
 	}
 }
