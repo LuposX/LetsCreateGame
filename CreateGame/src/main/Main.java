@@ -18,7 +18,7 @@ public class Main {
 			app.setVSync(true);
 			app.start();
 			
-			System.out.println("AAAA");
+			System.out.println("AAAadadadadadadadadadaA");
 			
 		} catch(SlickException e){
 			e.printStackTrace();
