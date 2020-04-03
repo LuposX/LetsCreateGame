@@ -11,7 +11,6 @@ import logic.Controls;
 
 public class Level1 extends BasicGameState{
 	Rectangle test;
-	Controls controls;
 	
 	/* ------------------------
 	 * TEST LEVEL
@@ -23,7 +22,8 @@ public class Level1 extends BasicGameState{
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-		controls.init(gc, sbg);
+		
+		Controls.init(gc, sbg);
 		
 		test = new Rectangle(50, 50, 100, 100);
 	}
@@ -31,7 +31,7 @@ public class Level1 extends BasicGameState{
 	@Override
 	// Hier kommt alles was mit grafik zu tun hat rein
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-		controls.render(gc, g);
+		Controls.render(gc, g);
 		
 		g.draw(test);;
 	}
@@ -39,7 +39,7 @@ public class Level1 extends BasicGameState{
 	@Override
 	// Hier kommt game-logic des levels rein
 	public void update(GameContainer gc, StateBasedGame sbg, int t) throws SlickException {	
-		controls.update(gc, sbg, t);
+		Controls.update(gc, sbg, t);
 	}
 
 	@Override

@@ -12,16 +12,16 @@ public class Controls {
 	 * 
 	 */
 	
-	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+	public static void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		
 	}
 	
 	
-	public void render(GameContainer gc, Graphics g) {
+	public static void render(GameContainer gc, Graphics g) {
 		
 	}
 	
-	public void update(GameContainer gc, StateBasedGame sbg, int t) {
+	public static void update(GameContainer gc, StateBasedGame sbg, int t) {
 		
 	}
 }
