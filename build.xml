@@ -55,7 +55,7 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="main (2)">
+    <target name="test">
         <java classname="main.Main" failonerror="true" fork="yes">
             <classpath refid="CreateGame.classpath"/>
         </java>
