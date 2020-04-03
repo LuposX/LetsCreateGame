@@ -12,8 +12,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import levels.Level1;
-import menu.Start;
-import menu.Credits;
+import menus.Credits;
+import menus.Start;
 
 public class Game extends StateBasedGame {
 	/*Here we define our Game-States a Game-States is like a new Screen or like a level
