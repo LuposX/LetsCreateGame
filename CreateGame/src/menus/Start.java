@@ -1,4 +1,4 @@
-package menu;
+package menus;
 
 import org.lwjgl.input.Mouse;
 import org.lwjgl.openal.AL;
@@ -9,9 +9,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class MainMenu extends BasicGameState{
+public class Start extends BasicGameState{
 	
-	public MainMenu(int startmenu) {
+	public Start(int startmenu) {
 	}
 
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
