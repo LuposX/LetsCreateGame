@@ -11,8 +11,8 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-import menu.Level1;
-import menu.MainMenu;
+import levels.Level1;
+import menu.Start;
 import menu.Credits;
 
 public class Game extends StateBasedGame {
@@ -31,7 +31,7 @@ public class Game extends StateBasedGame {
 	public Game(String gameName) {
 		super(gameName);
 		// We add out state to the object Game
-		this.addState(new MainMenu(START_MENU)); 
+		this.addState(new Start(START_MENU)); 
 		this.addState(new Credits(CREDITS_MENU));
 		this.addState(new Level1(START_LEVEL));
 	}
