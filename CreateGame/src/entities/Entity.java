@@ -6,9 +6,11 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 public abstract class Entity {
-	float posX;
-	float posY;
-	Shape shape;
+	public float posX;
+	public float posY;
+	public Shape shape;
+	public boolean wantToDie = false; //Wenn true wird es von der Loop in Controls/update gelöscht
+	public int age = 0; //Eigenschaft die von Erbenden Methoden genutzt werden kann
 	
 	public Entity(float x, float y){
 		posX = x;

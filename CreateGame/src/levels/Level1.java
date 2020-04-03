@@ -11,7 +11,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import logic.Controls;
 
 public class Level1 extends BasicGameState{
-	Rectangle test;
 	
 	/* ------------------------
 	 * TEST LEVEL
@@ -25,17 +24,13 @@ public class Level1 extends BasicGameState{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		
 		Controls.init(gc, sbg);
-		
-		test = new Rectangle(10, 10, 20, 300);
+
 	}
 
 	@Override
 	// Hier kommt alles was mit grafik zu tun hat rein
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		Controls.render(gc, g);
-		
-		g.setColor(Color.white);
-		g.fill(test);;
 	}
 
 	@Override

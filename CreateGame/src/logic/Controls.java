@@ -30,8 +30,10 @@ public class Controls {
 	
 	public static void update(GameContainer gc, StateBasedGame sbg, int t) {
 		//Aufrufen aller Entities
-		for(Entity en : entities) {
+		for(int i = 0; i < entities.size(); i++) {
+			Entity en = entities.get(i);
 			en.update(gc, sbg, t);
+			if(en.wantToDie) {entities.remove(i);}
 		}
 	}
 }

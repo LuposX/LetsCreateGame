@@ -7,7 +7,9 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import entities.projectile.ProjectileSnowball;
 import javafx.geometry.Rectangle2D;
+import logic.Controls;
 import net.java.games.input.Component.Identifier.Key;
 
 public class Player extends Entity{
@@ -33,6 +35,10 @@ public class Player extends Entity{
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_D) || gc.getInput().isControllerRight(gc.getInput().ANY_CONTROLLER)) {
 			posX += speed;
+		}
+		
+		if(gc.getInput().isMouseButtonDown(0)) {
+			Controls.entities.add(new ProjectileSnowball(posX, posY, 3, 0, this));
 		}
 	}
 
