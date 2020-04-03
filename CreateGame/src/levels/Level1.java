@@ -1,5 +1,6 @@
 package levels;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -25,7 +26,7 @@ public class Level1 extends BasicGameState{
 		
 		Controls.init(gc, sbg);
 		
-		test = new Rectangle(50, 50, 100, 100);
+		test = new Rectangle(10, 10, 20, 300);
 	}
 
 	@Override
@@ -33,7 +34,8 @@ public class Level1 extends BasicGameState{
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		Controls.render(gc, g);
 		
-		g.draw(test);;
+		g.setColor(Color.white);
+		g.fill(test);;
 	}
 
 	@Override
