@@ -61,8 +61,8 @@
         </java>
     </target>
      <target name="main">
-        <java classname="CreateGame.src.main.Main" failonerror="true" fork="yes">
-            <classpath refid="CreateGame.classpath"/>
+        <java classname="src.main.Main" failonerror="true" fork="yes">
+            <classpath refid=".classpath"/>
         </java>
     </target>
 </project>
