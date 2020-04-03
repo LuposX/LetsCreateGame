@@ -57,12 +57,12 @@
     </target>
     <target name="test">
         <java classname="main.Main" failonerror="true" fork="yes">
-            <classpath refid="CreateGame..classpath"/>
+            <classpath refid=".classpath"/>
         </java>
     </target>
      <target name="main">
         <java classname="main.Main" failonerror="true" fork="yes">
-            <classpath refid="CreateGame..classpath"/>
+            <classpath refid=".classpath"/>
         </java>
     </target>
 </project>
