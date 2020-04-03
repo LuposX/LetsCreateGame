@@ -56,8 +56,8 @@
         <antcall target="build"/>
     </target>
     <target name="test">
-        <java classname="CreateGame.src.main.Main" failonerror="true" fork="yes">
-            <classpath refid="CreateGame.classpath"/>
+        <java classname="src.main.Main" failonerror="true" fork="yes">
+            <classpath refid=".classpath"/>
         </java>
     </target>
      <target name="main">
