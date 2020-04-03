@@ -11,6 +11,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import menu.Ingame;
 import menu.MainMenu;
 
 public class Game extends StateBasedGame {
@@ -18,14 +19,16 @@ public class Game extends StateBasedGame {
 	// Every Game-State has a special number assigned to it with which we can "run/load" the state
 	public static final String GAMENAME = "My Jumpn Run Game";
 	public static final int STARTMENU = 0; // we give out start Menu the id 0
+	public static final int INGAME = 1; // we give out start Ingame the id 1
 		
 	public Game(String gameName) {
 		super(gameName);
 		this.addState(new MainMenu(STARTMENU)); // We add out state to the object Game
+		this.addState(new Ingame(INGAME));
 	}
 
 	public void initStatesList(GameContainer gc) throws SlickException {
-		this.getState(STARTMENU).init(gc, this);
+		this.enterState(STARTMENU);
 	}
 
 }
