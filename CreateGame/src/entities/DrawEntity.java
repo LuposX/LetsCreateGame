@@ -15,4 +15,11 @@ public class DrawEntity {
 		
 		this.drawID = entityID; //Vorläufig; Später: entityID != drawID
 	}
+	
+	//Führt die Logic des Objektes ein.
+	//Wird bei der Vererbung überschrieben
+	//Kann als abstrakt behandelt werden
+	public void tick() {
+		
+	}
 }

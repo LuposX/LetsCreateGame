@@ -20,10 +20,12 @@ public class Ingame extends BasicGameState{
 
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		GatewayGraphic.init();
+		GatewayLogic.init();
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int t) throws SlickException {
-		GatewayLogic.sendTick(); //Gibt update weiter
+		GatewayLogic.sendTick(gc.getInput()); //Gibt update weiter
+		
 	}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
