@@ -9,10 +9,10 @@
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
     <path id="Slick2d.userclasspath">
-        <pathelement location="../../../../../CreateGame/libs/jars/jinput.jar"/>
-        <pathelement location="../../../../../CreateGame/libs/jars/lwjgl.jar"/>
-        <pathelement location="../../../../../CreateGame/libs/jars/lwjgl_util.jar"/>
-        <pathelement location="../../../../../CreateGame/libs/jars/slick.jar"/>
+        <pathelement location="CreateGame/libs/jars/jinput.jar"/>
+        <pathelement location="CreateGame/libs/jars/lwjgl.jar"/>
+        <pathelement location="CreateGame/libs/jars/lwjgl_util.jar"/>
+        <pathelement location="CreateGame/libs/jars/slick.jar"/>
     </path>
     <path id="Sick2d.userclasspath"/>
     <path id="CreateGame.classpath">
@@ -56,12 +56,12 @@
         <antcall target="build"/>
     </target>
     <target name="test">
-        <java classname="main.Main" failonerror="true" fork="yes">
+        <java classname="CreateGame.main.Main" failonerror="true" fork="yes">
             <classpath refid="CreateGame.classpath"/>
         </java>
     </target>
      <target name="main">
-        <java classname="main.Main" failonerror="true" fork="yes">
+        <java classname="CreateGame.main.Main" failonerror="true" fork="yes">
             <classpath refid="CreateGame.classpath"/>
         </java>
     </target>
