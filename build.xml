@@ -4,6 +4,9 @@
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="CreateGame">
+    <classpath>
+         <pathelement path="${classpath}"/>
+    </classpath>             
     <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
@@ -57,12 +60,12 @@
     </target>
     <target name="test">
         <java classname="main.Main" failonerror="true" fork="yes">
-            <classpath refid=".classpath"/>
+            <classpath refid="CreateGame.classpath"/>
         </java>
     </target>
      <target name="main">
         <java classname="main.Main" failonerror="true" fork="yes">
-            <classpath refid=".classpath"/>
+            <classpath refid="CreateGame.classpath"/>
         </java>
     </target>
 </project>
