@@ -16,7 +16,7 @@ public abstract class Entity {
 	public boolean wantToDie = false; //Wenn true wird es von der Loop in Controls/update gel�scht
 	public int age = 0; //Eigenschaft die von Erbenden Methoden genutzt werden kann
 	
-	public float speed = 1; //Eigenschaft die die Geschwindigkeit es Entitys bestimmen soll [Standart: 1]
+	public float speed; //Eigenschaft die die Geschwindigkeit es Entitys bestimmen soll [Standart: 1]
 	public float aktspeed;
 	
 	public Entity(float x, float y){
