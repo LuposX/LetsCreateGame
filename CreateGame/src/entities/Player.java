@@ -38,7 +38,7 @@ public class Player extends Entity{
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
-			Controls.entities.add(new ProjectileSnowball(posX, posY, 3, 0, this));
+			Controls.entities.add(new ProjectileSnowball(posX, posY, gc.getInput().getMouseX(), gc.getInput().getMouseY(), this));
 		}
 	}
 
