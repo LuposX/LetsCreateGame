@@ -20,13 +20,12 @@ public class Player extends Entity{
 	
 	public Player(float x, float y) {
 		super(x, y);
-		speed = 1;
+		speed = 10;
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Input-Control
-		System.out.println(""+dt);
 		if(gc.getInput().isKeyDown(Input.KEY_W) || gc.getInput().isControllerUp(gc.getInput().ANY_CONTROLLER)) {
 			posY -= aktspeed;
 		}
@@ -54,7 +53,7 @@ public class Player extends Entity{
 	public void render(GameContainer gc, Graphics g) {
 		g.setColor(Color.red);
 		
-		shape = new Rectangle(drawX-7, drawY-7, 14, 14);
+		shape = new Rectangle(drawX-7, drawY-7, 20, 20);
 		g.fill(shape);
 	}
 

@@ -13,7 +13,7 @@ import entities.Player;
 
 public class Controls {
 	
-	public static final float tileSize = 32;
+	public static final float tileSize = 16;
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
 	public static Player player = new Player(10, 10);

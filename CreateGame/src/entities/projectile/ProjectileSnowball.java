@@ -15,7 +15,7 @@ public class ProjectileSnowball extends Projectile {
 	public ProjectileSnowball(float x, float y, float velX, float velY, Entity own) {
 		super(x, y, velX, velY, own);
 		age = 0;
-		speed = 2;
+		speed = 13;
 	}
 
 	@Override
@@ -24,16 +24,16 @@ public class ProjectileSnowball extends Projectile {
 		posY += directionY*aktspeed;
 		age++;
 		//Todesbedingung
-		if(age > 100) {
+		if(age > 200) {
 			wantToDie = true;
 		}
 	}
 
 	@Override
 	public void render(GameContainer gc, Graphics g) {
-		shape = new Rectangle(drawX-2,drawY-2,4,4);
+		shape = new Rectangle(drawX-2,drawY-2,6,6);
 		
-		g.setColor(Color.white);
+		g.setColor(Color.magenta);
 		g.fill(shape);
 	}
 
