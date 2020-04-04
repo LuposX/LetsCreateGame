@@ -13,8 +13,10 @@ import entities.Player;
 
 public class Controls {
 	
+	public static final float tileSize = 32;
+	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
-	public static Player player = new Player(100, 100);
+	public static Player player = new Player(10, 10);
 	
 	public static void init(GameContainer gc, StateBasedGame sbg) {
 		entities.add(player);
@@ -24,6 +26,7 @@ public class Controls {
 		
 		//Aufrufen aller Entities
 		for(Entity en : entities) {
+			en.prepareDraw();
 			en.render(gc, g);
 		}
 	}

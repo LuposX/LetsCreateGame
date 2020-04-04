@@ -11,7 +11,7 @@ import entities.Entity;
 
 public class ProjectileSnowball extends Projectile {
 
-	public float speed = 5;
+	public float speed = 0.4f;
 	
 	public ProjectileSnowball(float x, float y, float velX, float velY, Entity own) {
 		super(x, y, velX, velY, own);
@@ -31,7 +31,7 @@ public class ProjectileSnowball extends Projectile {
 
 	@Override
 	public void render(GameContainer gc, Graphics g) {
-		shape = new Rectangle(posX-2,posY-2,4,4);
+		shape = new Rectangle(drawX-2,drawY-2,4,4);
 		
 		g.setColor(Color.white);
 		g.fill(shape);
