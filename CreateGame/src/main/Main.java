@@ -14,7 +14,7 @@ public class Main {
 		try{
 			AppGameContainer app = new AppGameContainer(new Game("Dungon Game"));
 			app.setDisplayMode(960, 480, false);
-			app.setTargetFrameRate(100);
+			app.setTargetFrameRate(60);
 			app.setVSync(false);
 			app.start();
 			

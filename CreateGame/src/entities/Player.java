@@ -15,7 +15,6 @@ import net.java.games.input.Component.Identifier.Key;
 public class Player extends Entity{
 	
 	public float speed = 0.08f;
-	public float aktspeed = speed;
 	
 	public int cooldownPrimary = 0; //Cooldown f�r den Standartangriff | <= 0 hei�t ready
 	public int cooldownPrimaryMax = 10;
