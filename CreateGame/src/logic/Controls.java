@@ -31,11 +31,12 @@ public class Controls {
 		}
 	}
 	
-	public static void update(GameContainer gc, StateBasedGame sbg, int t) {
+	public static void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Aufrufen aller Entities
 		for(int i = 0; i < entities.size(); i++) {
 			Entity en = entities.get(i);
-			en.update(gc, sbg, t);
+			en.prepare_speed(dt);
+			en.update(gc, sbg, dt);
 			if(en.wantToDie) {entities.remove(i);}
 		}
 	}

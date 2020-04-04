@@ -12,6 +12,7 @@ import entities.Entity;
 public class ProjectileSnowball extends Projectile {
 
 	public float speed = 0.4f;
+	public float aktspeed = speed;
 	
 	public ProjectileSnowball(float x, float y, float velX, float velY, Entity own) {
 		super(x, y, velX, velY, own);
@@ -20,8 +21,8 @@ public class ProjectileSnowball extends Projectile {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int t) {
-		posX += directionX*speed;
-		posY += directionY*speed;
+		posX += directionX*aktspeed;
+		posY += directionY*aktspeed;
 		age++;
 		//Todesbedingung
 		if(age > 100) {

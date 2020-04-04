@@ -37,7 +37,7 @@ public class Start extends BasicGameState{
 		//Play button
 		if((posX > 445 && posX < 490) && (posY > 290 && posY < 310)){
 			if(Mouse.isButtonDown(0)){
-				sbg.enterState(1);
+				sbg.enterState(2);
 			}
 		}
 		
@@ -59,7 +59,7 @@ public class Start extends BasicGameState{
 		//Credits Button
 		if((posX > 445 && posX < 520) && (posY > 190 && posY < 210)){
 			if(Mouse.isButtonDown(0)){
-				sbg.enterState(3);
+				sbg.enterState(1);
 			}
 		}
 	}

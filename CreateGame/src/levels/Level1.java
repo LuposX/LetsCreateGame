@@ -41,7 +41,7 @@ public class Level1 extends BasicGameState{
 
 	@Override
 	public int getID() {
-		return 1;
+		return 2;
 	}
 
 }

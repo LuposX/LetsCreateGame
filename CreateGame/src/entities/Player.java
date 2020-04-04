@@ -15,8 +15,9 @@ import net.java.games.input.Component.Identifier.Key;
 public class Player extends Entity{
 	
 	public float speed = 0.08f;
+	public float aktspeed = speed;
 	
-	public int cooldownPrimary = 0; //Cooldown für den Standartangriff | <= 0 heißt ready
+	public int cooldownPrimary = 0; //Cooldown fï¿½r den Standartangriff | <= 0 heiï¿½t ready
 	public int cooldownPrimaryMax = 10;
 	
 	public Player(float x, float y) {
@@ -24,20 +25,20 @@ public class Player extends Entity{
 	}
 
 	@Override
-	public void update(GameContainer gc, StateBasedGame sbg, int t) {
+	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Input-Control
-		
+		System.out.println(""+dt);
 		if(gc.getInput().isKeyDown(Input.KEY_W) || gc.getInput().isControllerUp(gc.getInput().ANY_CONTROLLER)) {
-			posY -= speed;
+			posY -= aktspeed;
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_A) || gc.getInput().isControllerLeft(gc.getInput().ANY_CONTROLLER)) {
-			posX -= speed;
+			posX -= aktspeed;
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_S) || gc.getInput().isControllerDown(gc.getInput().ANY_CONTROLLER)) {
-			posY += speed;
+			posY += aktspeed;
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_D) || gc.getInput().isControllerRight(gc.getInput().ANY_CONTROLLER)) {
-			posX += speed;
+			posX += aktspeed;
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {

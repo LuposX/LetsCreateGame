@@ -14,8 +14,8 @@ public class Main {
 		try{
 			AppGameContainer app = new AppGameContainer(new Game("Dungon Game"));
 			app.setDisplayMode(960, 480, false);
-			app.setTargetFrameRate(30);
-			app.setVSync(true);
+			app.setTargetFrameRate(100);
+			app.setVSync(false);
 			app.start();
 			
 		} catch(SlickException e){
