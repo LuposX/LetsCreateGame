@@ -26,6 +26,7 @@ public class Player extends Entity{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Input-Control
+		System.out.println(""+dt);
 		if(gc.getInput().isKeyDown(Input.KEY_W) || gc.getInput().isControllerUp(gc.getInput().ANY_CONTROLLER)) {
 			posY -= aktspeed;
 		}
