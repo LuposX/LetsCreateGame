@@ -16,6 +16,9 @@ public class Player extends Entity{
 	
 	public float speed = 2;
 	
+	public int cooldownPrimary = 0; //Cooldown für den Standartangriff | <= 0 heißt ready
+	public int cooldownPrimaryMax = 10;
+	
 	public Player(float x, float y) {
 		super(x, y);
 	}
@@ -38,7 +41,12 @@ public class Player extends Entity{
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
-			Controls.entities.add(new ProjectileSnowball(posX, posY, gc.getInput().getMouseX(), gc.getInput().getMouseY(), this));
+			if(cooldownPrimary <= 0) {
+				Controls.entities.add(new ProjectileSnowball(posX, posY, gc.getInput().getMouseX(), gc.getInput().getMouseY(), this));
+				cooldownPrimary = cooldownPrimaryMax;
+			} else {
+				cooldownPrimary--;
+			}
 		}
 	}
 
