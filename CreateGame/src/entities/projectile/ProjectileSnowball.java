@@ -11,7 +11,7 @@ import entities.Entity;
 
 public class ProjectileSnowball extends Projectile {
 
-	public float speed = 0.4f;
+	public float speed = 2f;
 	
 	public ProjectileSnowball(float x, float y, float velX, float velY, Entity own) {
 		super(x, y, velX, velY, own);
