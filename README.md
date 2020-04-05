@@ -1,9 +1,20 @@
 # Lets Create A Game
-> I create a Game with Classmates
+> A 2D-Dungeon Crawler Game
 
 
 ## Release History
-* alpha
+* In development
+
+## Usage
+Nothing yet
+
+## Meta
+
+<!--Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com-->
+
+Distributed under the MIT license. See ``LICENSE`` for more information.
+
+[LICENSE](https://github.com/LuposX/LetsCreateGame/blob/master/LICENSE)
 
 ## Contributing
 
