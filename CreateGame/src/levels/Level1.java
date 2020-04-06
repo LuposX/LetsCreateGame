@@ -16,7 +16,7 @@ public class Level1 extends BasicGameState{
 	/* ------------------------
 	 * TEST LEVEL
 	 * ------------------------
-	 * FAG YOU
+	 * Thank you
 	 */
 	private TiledMap map;
 	
