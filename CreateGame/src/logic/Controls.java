@@ -10,6 +10,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
 import entities.Player;
+import entities.hostile.Slime;
 
 public class Controls {
 	
@@ -20,6 +21,9 @@ public class Controls {
 	
 	public static void init(GameContainer gc, StateBasedGame sbg) {
 		entities.add(player);
+		
+		//Testweises hinzufuegen von Entities
+		entities.add(new Slime(14, 3));
 	}
 	
 	public static void render(GameContainer gc, Graphics g) {
