@@ -39,21 +39,23 @@ public class Player extends Entity{
 			posX += aktuellerSpeed;
 		}
 		
+		
 		if(gc.getInput().isMouseButtonDown(0)) {
+			System.out.println("?");
 			if(cooldownPrimary <= 0) {
+				System.out.println("X");
 				Controls.entities.add(new ProjectileSnowball(posX, posY, gc.getInput().getMouseX()/Controls.tileSize, gc.getInput().getMouseY()/Controls.tileSize, this));
 				cooldownPrimary = cooldownPrimaryMax;
-			} else {
-				cooldownPrimary--;
 			}
 		}
+		cooldownPrimary--;
 	}
 
 	@Override
 	public void render(GameContainer gc, Graphics g) {
 		g.setColor(Color.red);
 		
-		shape = new Rectangle(drawX-7, drawY-7, 20, 20);
+		shape = new Rectangle(drawX-10, drawY-10, 20, 20);
 		g.fill(shape);
 	}
 

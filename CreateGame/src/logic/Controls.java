@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.tiled.TiledMap;
 
 import entities.Entity;
 import entities.Player;
@@ -18,10 +19,11 @@ public class Controls {
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
 	public static Player player = new Player(10, 10);
+		
+	public static TiledMap map;
 	
 	public static void init(GameContainer gc, StateBasedGame sbg) {
-		entities.add(player);
-		
+		entities.add(player);	
 		//Testweises hinzufuegen von Entities
 		entities.add(new Slime(14, 3));
 	}
@@ -44,5 +46,6 @@ public class Controls {
 			
 			if(en.wantToDie) {entities.remove(i);} //Entity wird aus der Liste entfernt
 		}
+
 	}
 }

@@ -18,7 +18,6 @@ public class Level1 extends BasicGameState{
 	 * ------------------------
 	 * Thank you
 	 */
-	private TiledMap map;
 	
 	public Level1(int Level1) {
 	}
@@ -27,13 +26,13 @@ public class Level1 extends BasicGameState{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		Controls.init(gc, sbg);
 		
-		map = new TiledMap("res/level1.tmx"); // loading the level from a tilemap
+		Controls.map = new TiledMap("res/level1.tmx"); // loading the level from a tilemap
 	}
 
 	@Override
 	// Hier kommt alles was mit grafik zu tun hat rein
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-		map.render(0, 0);
+		Controls.map.render(0, 0);
 		Controls.render(gc, g);	
 	}
 
@@ -43,6 +42,7 @@ public class Level1 extends BasicGameState{
 		Controls.update(gc, sbg, t);
 	}
 
+	
 	@Override
 	public int getID() {
 		return 2;
