@@ -41,4 +41,11 @@ public abstract class Entity {
 		drawX = posX * Controls.tileSize;
 		drawY = posY * Controls.tileSize;
 	}
+	
+	//<nicht implementiert>
+	//Input: Aktiver Kollisionsteilnehmer
+	//Wird aufgerufen wenn (z.B. ein Projektil) dieses Entity trifft.
+	public void onCollision(Entity en) {
+		//Hier nichts reinschreiben. In den Unterklassen (durch überschreiben) implementieren
+	}
 }
