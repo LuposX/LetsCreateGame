@@ -37,7 +37,8 @@ public class Controls {
 			Entity en = entities.get(i);
 			en.prepare_speed(dt);
 			en.update(gc, sbg, dt);
-			if(en.wantToDie) {entities.remove(i);}
+			
+			if(en.wantToDie) {entities.remove(i);} //Entity wird aus der Liste entfernt
 		}
 	}
 }

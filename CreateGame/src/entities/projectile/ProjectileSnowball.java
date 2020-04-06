@@ -20,8 +20,8 @@ public class ProjectileSnowball extends Projectile {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int t) {
-		posX += directionX*aktspeed;
-		posY += directionY*aktspeed;
+		posX += directionX*aktuellerSpeed;
+		posY += directionY*aktuellerSpeed;
 		age++;
 		//Todesbedingung
 		if(age > 200) {

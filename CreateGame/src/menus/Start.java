@@ -9,6 +9,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import main.Game;
+
 public class Start extends BasicGameState{
 	
 	public Start(int startmenu) {
@@ -37,14 +39,15 @@ public class Start extends BasicGameState{
 		//Play button
 		if((posX > 445 && posX < 490) && (posY > 290 && posY < 310)){
 			if(Mouse.isButtonDown(0)){
-				sbg.enterState(2);
+				sbg.enterState(Game.START_LEVEL);
 			}
 		}
 		
 		//Settings button
 		if((posX > 445 && posX < 520) && (posY > 240 && posY < 260)){
 			if(Mouse.isButtonDown(0)){
-				sbg.enterState(4);
+				//sbg.enterState(4); Weg kommentiert
+				throw new java.lang.UnsupportedOperationException("Not supported yet.");
 				}
 			}
 		
@@ -59,7 +62,7 @@ public class Start extends BasicGameState{
 		//Credits Button
 		if((posX > 445 && posX < 520) && (posY > 190 && posY < 210)){
 			if(Mouse.isButtonDown(0)){
-				sbg.enterState(1);
+				sbg.enterState(Game.CREDITS_MENU);
 			}
 		}
 	}
