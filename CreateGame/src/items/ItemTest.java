@@ -18,7 +18,6 @@ public class ItemTest extends Item{
 
 	@Override
 	public void onPassive() {
-		currentInventory.player.speed *= 2;
 	}
 
 	@Override
@@ -28,7 +27,7 @@ public class ItemTest extends Item{
 
 	@Override
 	public void onPassiveActivation() {
-
+		currentInventory.player.speed *= 2;
 	}
 
 	@Override
