@@ -1,4 +1,4 @@
-package player;
+package entities.player;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
