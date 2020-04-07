@@ -25,10 +25,4 @@ public class ItemTest extends Item{
 	public void onActive() {
 		
 	}
-
-	@Override
-	public void on_pickup(Inventory pickUpInventory) {
-		currentInventory = pickUpInventory;
-	}
-
 }

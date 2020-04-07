@@ -31,9 +31,5 @@ public abstract class Item {
 	public abstract void onPassive();
 	
 	//Wird ausgef�hrt, wenn das Item aktiv benutzt wird.
-	public abstract void onActive();
-	
-	// When we pick up a item
-	public abstract void on_pickup(Inventory currentInventory);
-	
+	public abstract void onActive();	
 }

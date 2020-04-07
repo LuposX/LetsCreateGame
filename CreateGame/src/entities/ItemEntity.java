@@ -7,10 +7,12 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import items.Item;
+import entities.player.Inventory;
+import entities.player.Player;
 
 public class ItemEntity extends Entity{
 
-	Item theItem; //das Item, welches zu diesem Entity gehört.
+	Item theItem; //das Item, welches zu diesem Entity gehï¿½rt.
 	
 	public ItemEntity(float x, float y, Item theItem) {
 		super(x, y);
@@ -32,6 +34,16 @@ public class ItemEntity extends Entity{
 		g.fill(shape);
 		g.setColor(Color.orange);
 		g.drawString(theItem.displayName, drawX+5, drawY); //Statt Text, Bild einfuegen
+	}
+	
+	@Override
+	public void onCollision(Entity en) {
+		if (en instanceof Player) {
+			Player p = (Player) en;
+			theItem.currentInventory = p.inventory;
+			theItem.currentInventory.add_item_to_Inventory(theItem);
+			this.wantToDie = true;
+		}
 	}
 
 }

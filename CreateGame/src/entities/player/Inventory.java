@@ -20,12 +20,11 @@ public class Inventory {
 	}
 	
 	public void add_item_to_Inventory(Item item) {
-		/* When we pick up a Item execute this command
+		/* When the player collides with a item. This gets executed
 		 * 
 		 * @param item the item we add to our Inventory
 		 * @return void 
 		 */
-		item.on_pickup(this); // For documentation go into the Item class
 		Inventory.add(item); // we add out item to the inventory
 		item.onPassive(); // we execute the passive of our item
 	}
