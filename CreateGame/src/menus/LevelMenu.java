@@ -49,7 +49,7 @@ public class LevelMenu extends BasicGameState {
 		if((posX > 445 && posX < 490) && (posY > 290 && posY < 310)){
 			if(Mouse.isButtonDown(0)){
 				//TODO: implement real level "here"
-				throw new java.lang.UnsupportedOperationException("Not supported yet.");
+				throw new java.lang.UnsupportedOperationException("Not supported yet. We're missing a level.");
 			}
 		}
 		
