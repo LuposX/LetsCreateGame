@@ -13,6 +13,7 @@ import entities.Entity;
 import entities.ItemEntity;
 import entities.hostile.Slime;
 import entities.player.Player;
+import items.ItemSnowball;
 import items.ItemTest;
 
 public class Controls {
@@ -46,6 +47,8 @@ public class Controls {
 		entities.add(new ItemEntity(17, 3, new ItemTest()));
 		entities.add(new ItemEntity(19, 3, new ItemTest()));
 		entities.add(new ItemEntity(21, 3, new ItemTest()));
+		
+		entities.add(new ItemEntity(17, 6, new ItemSnowball()));
 	}
 	
 	public static void render(GameContainer gc, Graphics g) {

@@ -17,8 +17,10 @@ import net.java.games.input.Component.Identifier.Key;
 
 public class Player extends Entity{
 	
-	public int cooldownPrimary = 0; //Cooldown f�r den Standartangriff | <= 0 hei�t ready
+	public int cooldownPrimary = 0; //Cooldown fuur den Standartangriff | <= 0 hei�t ready
 	public int cooldownPrimaryMax = 10;
+	public int cooldownSecundary = 0; //Cooldown fuer den Standartangriff | <= 0 hei�t ready
+	public int cooldownSecundaryMax = 10;
 	
 	public Inventory inventory;
 	
@@ -66,12 +68,20 @@ public class Player extends Entity{
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
-			if(cooldownPrimary <= 0) {
-				Controls.entities.add(new ProjectileSnowball(posX, posY, gc.getInput().getMouseX()/Controls.tileSize, gc.getInput().getMouseY()/Controls.tileSize, this));
+			if(cooldownPrimary <= 0 && inventory.inventory.length > 0 && inventory.inventory[0] != null) {
+				inventory.inventory[0].onActive(gc, sbg, dt);
 				cooldownPrimary = cooldownPrimaryMax;
 			}
 		}
 		cooldownPrimary--;
+		
+		if(gc.getInput().isMouseButtonDown(1)) {
+			if(cooldownSecundary <= 0 && inventory.inventory.length > 1 && inventory.inventory[1] != null) {
+				inventory.inventory[1].onActive(gc, sbg, dt);
+				cooldownSecundary = cooldownSecundaryMax;
+			}
+		}
+		cooldownSecundary--;
 		
 		//Updating hitbox
 		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);

@@ -34,7 +34,7 @@ public abstract class Item {
 	public abstract void onPassive();
 	
 	//Wird ausgef�hrt, wenn das Item aktiv benutzt wird.
-	public abstract void onActive();	
+	public abstract void onActive(GameContainer gc, StateBasedGame sbg, int dt);	
 	
 	public abstract void onPassiveActivation(); //Wird ausgefuehrt, wenn Passive aktiviert wird
 	public abstract void onPassiveDeactivation(); //Gegenteil von Activation
