@@ -27,6 +27,9 @@ public abstract class Item {
 		this.displayName = displayName;
 	}
 	
+	//Malt das Item bei den Koordinaten mit den geg. Maßen
+	public abstract void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g);
+	
 	//Wird ausgefï¿½hrt, wenn passiv (im Inventar) ausgefï¿½hrt (jedes update)
 	public abstract void onPassive();
 	

@@ -1,5 +1,9 @@
 package items;
 
+import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+
 import entities.player.Inventory;
 
 public class ItemTest extends Item{
@@ -33,5 +37,13 @@ public class ItemTest extends Item{
 	@Override
 	public void onPassiveDeactivation() {
 
+	}
+
+	@Override
+	public void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g) {
+		g.setColor(Color.darkGray);
+		g.fillRect(x, y, width, height);
+		g.setColor(Color.orange);
+		g.drawString(displayName, x+5, y);
 	}
 }
