@@ -58,6 +58,9 @@ public class Controls {
 			
 			if(en.wantToDie) {entities.remove(i);} //Entity wird aus der Liste entfernt
 		}
+		
+		//Aufrufen des CollisionControlers
+		CollisionControler.detectEntityCollisions(entities);
 
 	}
 }
