@@ -49,19 +49,19 @@ public abstract class Projectile extends Entity{
 				speed *= (1-wallHitSpeedLoss);
 				remainingWallHits--;
 				
-				int iPosX = (int) posX;
-				int iPosY = (int) posY;
-				
-				if(directionX > 0 && !CollisionControler.isCordInLayer(iPosX-1, iPosY, Controls.LAYER_WALL)) {
+				if(directionX > 0 && !CollisionControler.isCordInLayer(posX-aktuellerSpeed, posY, Controls.LAYER_WALL)) {
 					directionX *= -1;
 				}
-				else if(directionX < 0 && !CollisionControler.isCordInLayer(iPosX+1, iPosY, Controls.LAYER_WALL)) {
+				else if(directionX < 0 && !CollisionControler.isCordInLayer(posX+aktuellerSpeed, posY, Controls.LAYER_WALL)) {
 					directionX *= -1;
 				}
-				else if(directionY < 0 && !CollisionControler.isCordInLayer(iPosX, iPosY+1, Controls.LAYER_WALL)) {
+				else if(directionY < 0 && !CollisionControler.isCordInLayer(posX, posY+aktuellerSpeed, Controls.LAYER_WALL)) {
 					directionY *= -1;
 				}
-				else if(directionY > 0 && !CollisionControler.isCordInLayer(iPosX, iPosY-1, Controls.LAYER_WALL)) {
+				else if(directionY > 0 && !CollisionControler.isCordInLayer(posX, posY-aktuellerSpeed, Controls.LAYER_WALL)) {
+					directionY *= -1;
+				} else {
+					directionX *= -1;
 					directionY *= -1;
 				}
 				
