@@ -13,30 +13,36 @@ import main.Game;
 
 public class Start extends BasicGameState{
 	
-	public Start(int startmenu) {
-	}
+	/* Start Menu
+	 * ----------
+	 *  This State is the Main Menu on the screen. You see this state first when you open
+	 *  the Menu.
+	 *  
+	 *  //TODO: Change graphics and make it prettier. I am thinking of running a video in the bg of the Menu.
+	 */
+	
+	public Start(int startmenu) {}
 
-	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
-	}
+	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+		// Here we render different string for the Main Menu
 		g.setColor(Color.white);
 		g.drawString("Play", 450, 170);
 		g.drawString("Settings", 450, 220);
 		g.drawString("Credits", 450, 270);
 		g.drawString("Exit", 450, 320);
-		g.drawString("Version: 1.3", 10, 450);
-		g.drawString("License: CC-BY 4.0", 780, 450);
+		g.drawString("Version: Alpha", 10, 450);
+		g.drawString("License: MIT", 780, 450);
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int t) throws SlickException {
+		// Getting the current Mouse position
 		int posX = Mouse.getX();
 		int posY = Mouse.getY();
 		
-		//System.out.println("X:" + posX + "Y:" + posY);
-		
 		//Play button
+		// Check if the mouse presses the button
 		if((posX > 445 && posX < 490) && (posY > 290 && posY < 310)){
 			if(Mouse.isButtonDown(0)){
 				sbg.enterState(Game.START_LEVEL);
@@ -46,7 +52,7 @@ public class Start extends BasicGameState{
 		//Settings button
 		if((posX > 445 && posX < 520) && (posY > 240 && posY < 260)){
 			if(Mouse.isButtonDown(0)){
-				//sbg.enterState(4); Weg kommentiert
+				//sbg.enterState(4); 
 				throw new java.lang.UnsupportedOperationException("Not supported yet.");
 				}
 			}

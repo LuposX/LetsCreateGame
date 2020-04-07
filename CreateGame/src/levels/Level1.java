@@ -19,8 +19,7 @@ public class Level1 extends BasicGameState{
 	 * Thank you
 	 */
 	
-	public Level1(int Level1) {
-	}
+	public Level1(int Level1) {}
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
