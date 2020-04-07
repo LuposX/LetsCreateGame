@@ -31,25 +31,38 @@ public class Player extends Entity{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Input-Control
+		
+		
+		float axisSpeed = aktuellerSpeed; //Die Geschwindigkeit in X bzw. Y Richtung
+		int pressedDirections = 0;
+		if(gc.getInput().isKeyDown(Input.KEY_W)) {pressedDirections++;}
+		if(gc.getInput().isKeyDown(Input.KEY_A)) {pressedDirections++;}
+		if(gc.getInput().isKeyDown(Input.KEY_S)) {pressedDirections++;}
+		if(gc.getInput().isKeyDown(Input.KEY_D)) {pressedDirections++;}
+		
+		if(pressedDirections > 1) {
+			axisSpeed /= Math.sqrt(2);
+		}
+		
 		if(gc.getInput().isKeyDown(Input.KEY_W)) {
-			posY -= aktuellerSpeed;
+			posY -= axisSpeed;
 			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
-			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY += aktuellerSpeed;}
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY += axisSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_A)) {
-			posX -= aktuellerSpeed;
+			posX -= axisSpeed;
 			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
-			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX += aktuellerSpeed;}
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX += axisSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_S)) {
-			posY += aktuellerSpeed;
+			posY += axisSpeed;
 			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
-			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY -= aktuellerSpeed;}
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY -= axisSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_D)) {
-			posX += aktuellerSpeed;
+			posX += axisSpeed;
 			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
-			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX -= aktuellerSpeed;}
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX -= axisSpeed;}
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
