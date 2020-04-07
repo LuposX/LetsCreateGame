@@ -20,9 +20,12 @@ public class Inventory {
 	 */
 	
 	public Player player; // our player referenz
-	public boolean isOpen = false; //Zeigt ob das Inv geoeffnet ist
 	public int InventarSlots = 8; // How much you can put in your Inventory
 	public Item[] inventory; // our Inventory
+	
+	public boolean isOpen = false; //Zeigt ob das Inv geoeffnet ist
+	public boolean isInventoryFull = false; // Zeigt ob das Inventory full ist
+
 	
 	public Inventory(Player playerInst) {
 		inventory = new Item[0]; // Creating a new Arraylist for the Inventory
@@ -30,12 +33,29 @@ public class Inventory {
 	}
 	
 	public void append_to_Inventory(Item item) {
+		/* This methods appends the inventory array and add a item to it.
+		 * 
+		 * @param item the item that gets appended to out inventory array
+		 * @return void
+		 */
 		if (inventory.length >= InventarSlots) {
 			System.err.print("inventar full");
+			isInventoryFull = true;
 		} else {
+			isInventoryFull = false;
 			inventory = Arrays.copyOf(inventory, inventory.length + 1);
 			inventory[inventory.length - 1] = item;
 		}
+	}
+	
+	public void message_Inventory_full(GameContainer gc, Graphics g) {
+		/* Gets displayed when the Inventory is full
+		 * 
+		 * @param g used to draw stuff, gets it from render method
+		 * @return void
+		 */
+		g.setColor(Color.red);
+		g.drawString("Inventory is full", gc.getWidth() / 2, gc.getHeight() / 2);
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
@@ -48,6 +68,10 @@ public class Inventory {
 	}
 	
 	public void render(GameContainer gc, Graphics g) {
+		if(isInventoryFull) {
+			message_Inventory_full(gc, g);
+		}
+		
 		if(isOpen) {
 			//Draw Windows
 			Color color1 = new Color(Color.lightGray);

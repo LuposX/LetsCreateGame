@@ -38,8 +38,12 @@ public class ItemEntity extends Entity{
 		if (en instanceof Player) {
 			Player p = (Player) en;
 			theItem.currentInventory = p.inventory;
-			theItem.currentInventory.add_item_to_Inventory(theItem);
-			this.wantToDie = true;
+			if (p.inventory.InventarSlots > p.inventory.inventory.length) {
+				theItem.currentInventory.add_item_to_Inventory(theItem);
+				this.wantToDie = true;
+			} else {
+				p.inventory.isInventoryFull = true;
+			}
 		}
 	}
 
