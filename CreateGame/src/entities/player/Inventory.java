@@ -1,6 +1,7 @@
 package entities.player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
@@ -18,19 +19,30 @@ public class Inventory {
 	 * 
 	 */
 	
-	public ArrayList<Item> inventory; // our Inventory
 	public Player player; // our player referenz
 	public boolean isOpen = false; //Zeigt ob das Inv geoeffnet ist
-	
+	public int InventarSlots = 8; // How much you can put in your Inventory
+	public Item[] inventory; // our Inventory
 	
 	public Inventory(Player playerInst) {
-		inventory = new ArrayList<Item>(); // Creating a new Arraylist for the Inventory
+		inventory = new Item[1]; // Creating a new Arraylist for the Inventory
 		player = playerInst; // setting the player Intsanz
+	}
+	
+	public void append_to_Inventory(Item item) {
+		if (inventory.length >= InventarSlots) {
+			System.err.print("inventar full");
+		} else {
+			inventory = Arrays.copyOf(inventory, inventory.length + 1);
+			inventory[inventory.length - 1] = item;
+		}
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		for(Item item : inventory) {
-			item.onPassive();
+			if (item != null) {
+				item.onPassive();
+			}
 		}
 		if(gc.getInput().isKeyPressed(Input.KEY_E)) {
 			isOpen = !isOpen;
@@ -63,9 +75,9 @@ public class Inventory {
 			g.resetLineWidth();
 			
 			//Draw Items
-			for(int i = 0; i < inventory.size(); i++) {
-				Item item = inventory.get(i);
-				
+			for(int i = 0; i < inventory.length; i++) {
+				Item item = inventory[i];
+				if (item != null) {
 				if(i == 0) {
 					item.drawOnScreen(30, 50, 50, 50, gc, g);
 				} else if(i == 1) {
@@ -75,6 +87,7 @@ public class Inventory {
 					float y = 160+(int)((i-2) / 6)*70;
 					item.drawOnScreen(x, y, 50, 50, gc, g);
 				}
+			  }
 			}
 		}
 	}
@@ -85,7 +98,7 @@ public class Inventory {
 		 * @param item the item we add to our Inventory
 		 * @return void 
 		 */
-		inventory.add(item); // we add out item to the inventory
+		append_to_Inventory(item); // we add out item to the inventory
 		item.onPassiveActivation(); // we execute the passive of our item
 	}
 	
@@ -96,8 +109,8 @@ public class Inventory {
 		 * @param idx The index of the item we want to equip
 		 * @return void 
 		 */
-		Item temp = inventory.get(0);
-		inventory.set(0, inventory.get(idx));
-		inventory.set(idx, temp);
+		Item temp = inventory[0];
+		inventory[0] = inventory[idx];
+		inventory[idx] = temp;
 	}
 }

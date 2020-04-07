@@ -36,15 +36,16 @@ public class Controls {
 		
 		//Testweises hinzufuegen von Entities
 		entities.add(new Slime(14, 3));
-		entities.add(new ItemEntity(2, 4, new ItemTest()));
-		entities.add(new ItemEntity(2, 5, new ItemTest()));
-		entities.add(new ItemEntity(2, 6, new ItemTest()));
-		entities.add(new ItemEntity(2, 7, new ItemTest()));
-		entities.add(new ItemEntity(2, 8, new ItemTest()));
-		entities.add(new ItemEntity(2, 9, new ItemTest()));
-		entities.add(new ItemEntity(2, 10, new ItemTest()));
-		entities.add(new ItemEntity(2, 11, new ItemTest()));
-		entities.add(new ItemEntity(2, 12, new ItemTest()));
+		entities.add(new ItemEntity(3, 3, new ItemTest()));
+		entities.add(new ItemEntity(5, 3, new ItemTest()));
+		entities.add(new ItemEntity(7, 3, new ItemTest()));
+		entities.add(new ItemEntity(9, 3, new ItemTest()));
+		entities.add(new ItemEntity(11, 3, new ItemTest()));
+		entities.add(new ItemEntity(13, 3, new ItemTest()));
+		entities.add(new ItemEntity(15, 3, new ItemTest()));
+		entities.add(new ItemEntity(17, 3, new ItemTest()));
+		entities.add(new ItemEntity(19, 3, new ItemTest()));
+		entities.add(new ItemEntity(21, 3, new ItemTest()));
 	}
 	
 	public static void render(GameContainer gc, Graphics g) {
