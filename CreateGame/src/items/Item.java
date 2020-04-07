@@ -32,4 +32,7 @@ public abstract class Item {
 	
 	//Wird ausgef�hrt, wenn das Item aktiv benutzt wird.
 	public abstract void onActive();	
+	
+	public abstract void onPassiveActivation(); //Wird ausgefuehrt, wenn Passive aktiviert wird
+	public abstract void onPassiveDeactivation(); //Gegenteil von Activation
 }

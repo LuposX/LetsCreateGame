@@ -26,7 +26,7 @@ public class Inventory {
 		 * @return void 
 		 */
 		inventory.add(item); // we add out item to the inventory
-		item.onPassive(); // we execute the passive of our item
+		item.onPassiveActivation(); // we execute the passive of our item
 	}
 	
 	public void equip_item_from_Inventory(int idx) {
