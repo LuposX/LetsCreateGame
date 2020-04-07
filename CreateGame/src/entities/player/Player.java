@@ -33,16 +33,23 @@ public class Player extends Entity{
 		//Input-Control
 		if(gc.getInput().isKeyDown(Input.KEY_W)) {
 			posY -= aktuellerSpeed;
-			System.out.println(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL));
+			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY += aktuellerSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_A)) {
 			posX -= aktuellerSpeed;
+			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX += aktuellerSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_S)) {
 			posY += aktuellerSpeed;
+			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY -= aktuellerSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_D)) {
 			posX += aktuellerSpeed;
+			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX -= aktuellerSpeed;}
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
