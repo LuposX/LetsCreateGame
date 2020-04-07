@@ -25,6 +25,7 @@ public class Game extends StateBasedGame {
 	public static final int CREDITS_MENU = 1;
 	public static final int LEVEL_MENU = 2;
 	public static final int START_LEVEL = 3; // we give out start Ingame the id 1
+	public static final int SETTINGS_MENU = 4;
 	
 	public Game(String gameName) {
 		super(gameName);
@@ -33,6 +34,7 @@ public class Game extends StateBasedGame {
 		this.addState(new menus.Credits(CREDITS_MENU));
 		this.addState(new menus.LevelMenu(START_LEVEL));
 		this.addState(new levels.Level1(START_LEVEL));
+		this.addState(new levels.Level1(SETTINGS_MENU));
 	}
 
 	public void initStatesList(GameContainer gc) throws SlickException {
