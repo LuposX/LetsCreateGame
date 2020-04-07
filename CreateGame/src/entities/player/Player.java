@@ -25,7 +25,6 @@ public class Player extends Entity{
 		super(x, y);
 		speed = 5;
 		inventory = new Inventory(this); // Create a Inventory for the player and give it the player instanz
-		inventory.add_item_to_Inventory(new ItemTest());
 	}
 
 	@Override
