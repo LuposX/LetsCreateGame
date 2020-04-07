@@ -25,7 +25,7 @@ public class Inventory {
 	public Item[] inventory; // our Inventory
 	
 	public Inventory(Player playerInst) {
-		inventory = new Item[1]; // Creating a new Arraylist for the Inventory
+		inventory = new Item[0]; // Creating a new Arraylist for the Inventory
 		player = playerInst; // setting the player Intsanz
 	}
 	
