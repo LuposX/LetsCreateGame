@@ -11,11 +11,11 @@ public class Inventory {
 	 * 
 	 */
 	
-	public ArrayList<Item> Inventory; // our Inventory
+	public ArrayList<Item> inventory; // our Inventory
 	public Player player; // our player referenz
 	
 	public Inventory(Player playerInst) {
-		Inventory = new ArrayList<Item>(); // Creating a new Arraylist for the Inventory
+		inventory = new ArrayList<Item>(); // Creating a new Arraylist for the Inventory
 		player = playerInst; // setting the player Intsanz
 	}
 	
@@ -25,7 +25,7 @@ public class Inventory {
 		 * @param item the item we add to our Inventory
 		 * @return void 
 		 */
-		Inventory.add(item); // we add out item to the inventory
+		inventory.add(item); // we add out item to the inventory
 		item.onPassive(); // we execute the passive of our item
 	}
 	
@@ -36,8 +36,8 @@ public class Inventory {
 		 * @param idx The index of the item we want to equip
 		 * @return void 
 		 */
-		Item temp = Inventory.get(0);
-		Inventory.set(0, Inventory.get(idx));
-		Inventory.set(idx, temp);
+		Item temp = inventory.get(0);
+		inventory.set(0, inventory.get(idx));
+		inventory.set(idx, temp);
 	}
 }
