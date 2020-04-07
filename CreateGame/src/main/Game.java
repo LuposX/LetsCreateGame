@@ -31,7 +31,7 @@ public class Game extends StateBasedGame {
 		// We add out state to the object Game
 		this.addState(new menus.Start(START_MENU)); 
 		this.addState(new menus.Credits(CREDITS_MENU));
-		this.addState(new menus.Level(START_LEVEL));
+		this.addState(new menus.LevelMenu(START_LEVEL));
 		this.addState(new levels.Level1(START_LEVEL));
 	}
 

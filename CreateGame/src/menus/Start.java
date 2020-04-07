@@ -1,5 +1,7 @@
 package menus;
 
+import java.util.concurrent.TimeUnit;
+
 import org.lwjgl.input.Mouse;
 import org.lwjgl.openal.AL;
 import org.newdawn.slick.Color;
@@ -45,7 +47,13 @@ public class Start extends BasicGameState{
 		// Check if the mouse presses the button
 		if((posX > 445 && posX < 490) && (posY > 290 && posY < 310)){
 			if(Mouse.isButtonDown(0)){
-				sbg.enterState(Game.START_LEVEL);
+				try {
+					TimeUnit.MILLISECONDS.sleep(100); // If we dont have that here. It will instantly jump in the first level
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				sbg.enterState(Game.LEVEL_MENU);
 			}
 		}
 		

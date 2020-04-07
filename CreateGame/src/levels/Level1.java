@@ -13,19 +13,19 @@ import logic.Controls;
 
 public class Level1 extends BasicGameState{
 	
-	/* ------------------------
-	 * TEST LEVEL
-	 * ------------------------
-	 * Thank you
+	/* Test level
+	 * -------------------
+	 * This is a test level, used for testing stuff. Test level will be replaced
+	 * later by a "real" level.
+	 * 
 	 */
 	
 	public Level1(int Level1) {}
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-		Controls.init(gc, sbg);
-		
-		Controls.map = new TiledMap("res/level1.tmx"); // loading the level from a tilemap
+		Controls.init(gc, sbg); // For documentation Check "Controls" class		
+		Controls.map = new TiledMap("res/level1.tmx"); // Loading the level from a tilemap
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class Level1 extends BasicGameState{
 	
 	@Override
 	public int getID() {
-		return 2;
+		return 3;
 	}
 
 }
