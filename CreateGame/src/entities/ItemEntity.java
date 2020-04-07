@@ -20,6 +20,7 @@ public class ItemEntity extends Entity{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Hier soll das Item logisch ueberprueft werden
+		hitbox = new Rectangle(posX-5f/32, posY-5f/32, 10f/32, 10f/32);
 	}
 
 	@Override

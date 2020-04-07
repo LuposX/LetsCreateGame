@@ -27,11 +27,14 @@ public class ProjectileSnowball extends Projectile {
 		if(age > 200) {
 			wantToDie = true;
 		}
+		
+		//Update hitbox
+		hitbox = new Rectangle(posX-2f/32, posY-2f/32, 4f/32, 4f/32);
 	}
 
 	@Override
 	public void render(GameContainer gc, Graphics g) {
-		shape = new Rectangle(drawX-2,drawY-2,6,6);
+		shape = new Rectangle(drawX-2,drawY-2,4,4);
 		
 		g.setColor(Color.magenta);
 		g.fill(shape);

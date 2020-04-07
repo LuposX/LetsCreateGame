@@ -11,6 +11,7 @@ import entities.Entity;
 import entities.projectile.ProjectileSnowball;
 import items.ItemTest;
 import javafx.geometry.Rectangle2D;
+import logic.CollisionControler;
 import logic.Controls;
 import net.java.games.input.Component.Identifier.Key;
 
@@ -32,6 +33,7 @@ public class Player extends Entity{
 		//Input-Control
 		if(gc.getInput().isKeyDown(Input.KEY_W)) {
 			posY -= aktuellerSpeed;
+			System.out.println(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL));
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_A)) {
 			posX -= aktuellerSpeed;
@@ -52,6 +54,9 @@ public class Player extends Entity{
 			}
 		}
 		cooldownPrimary--;
+		
+		//Updating hitbox
+		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
 	}
 
 	@Override

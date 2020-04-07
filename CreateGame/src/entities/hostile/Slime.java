@@ -14,7 +14,7 @@ public class Slime extends Hostile{
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
-		
+		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public abstract class Entity {
 	public float drawX;
 	public float drawY;
 	public Shape shape;
+	public Shape hitbox;
 	public boolean wantToDie = false; //Wenn true wird es von der Loop in Controls/update gel�scht
 	public int age = 0; //Eigenschaft die von Erbenden Methoden genutzt werden kann
 	public float health; //HP des Entities
