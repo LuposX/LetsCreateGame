@@ -27,7 +27,7 @@ public class Settings extends BasicGameState{
 		g.drawString("Open Inventory: E", 300, 190);
 		g.drawString("Sprint: SHIFT", 300, 210);
 		g.drawString("Back", 30, 430);
-		g.drawString("License: CC-BY 4.0", 780, 450);
+		g.drawString("License: MIT", 780, 450);
 		g.drawString("Game Settings", 300, 260);
 		g.drawString("Developer Modus: " + ON, 300, 300);
 	}

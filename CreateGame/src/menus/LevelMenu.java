@@ -35,8 +35,8 @@ public class LevelMenu extends BasicGameState {
 		g.setColor(Color.white);
 		g.drawString("Play the Game", 450, 170);
 		g.drawString("Playground", 450, 220);
-		g.drawString("Version: Alpha", 10, 450);
 		g.drawString("License: MIT", 780, 450);
+		g.drawString("Back", 30, 430);
 	}
 
 	@Override
@@ -58,6 +58,14 @@ public class LevelMenu extends BasicGameState {
 				sbg.enterState(Game.START_LEVEL);
 				}
 			}
+		
+		//Back button
+		if((posX > 25 && posX < 70) && (posY > 30 && posY < 55)){
+			//System.out.println("drauf");
+			if(Mouse.isButtonDown(0)){
+				sbg.enterState(Game.START_MENU);
+			}
+		}
 	}
 
 	@Override

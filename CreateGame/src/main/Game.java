@@ -34,7 +34,7 @@ public class Game extends StateBasedGame {
 		this.addState(new menus.Credits(CREDITS_MENU));
 		this.addState(new menus.LevelMenu(START_LEVEL));
 		this.addState(new levels.Level1(START_LEVEL));
-		this.addState(new levels.Level1(SETTINGS_MENU));
+		this.addState(new menus.Settings(SETTINGS_MENU));
 	}
 
 	public void initStatesList(GameContainer gc) throws SlickException {
