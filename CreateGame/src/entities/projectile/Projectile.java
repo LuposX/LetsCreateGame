@@ -14,7 +14,7 @@ public abstract class Projectile extends Entity{
 	public float directionY;
 	public Entity owner;
 	
-	public float wallHitSpeedLoss = 0f; //Geschwindigkeitsverlust bei Wandtreffer 0.3 = 30%
+	public float wallHitSpeedLoss = 0.0f; //Geschwindigkeitsverlust bei Wandtreffer 0.3 = 30%
 	public int remainingWallHits = 1; //Anzahl der moeglichen Wandtreffer
 	
 	//targX und tagrY sind die Koordinaten auf die der Schuss zu Beginn ziehlt

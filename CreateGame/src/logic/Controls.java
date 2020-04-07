@@ -20,7 +20,7 @@ public class Controls {
 	public static final float tileSize = 32;
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
-	public static Player player = new Player(10, 10);
+	public static Player player = new Player(15, 10);
 		
 	public static TiledMap map;
 	
@@ -31,7 +31,6 @@ public class Controls {
 		//belegen der "Halb-Konstanten"
 		LAYER_GROUND = map.getLayerIndex("ground");
 		LAYER_WALL = map.getLayerIndex("wall");
-		
 		
 		entities.add(player);	
 		
