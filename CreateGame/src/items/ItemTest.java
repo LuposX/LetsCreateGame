@@ -14,10 +14,10 @@ public class ItemTest extends Item{
 	 * 
 	 */
 	
-	public int speed_multiplier = 2;
+	public float speed_multiplier = 1.1f;
 	
 	public ItemTest() {
-		super("Das Mega Test Item");
+		super("Test");
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class ItemTest extends Item{
 
 	@Override
 	public void onPassiveActivation() {
-		currentInventory.player.speed *= 2;
+		currentInventory.player.speed *= speed_multiplier;
 	}
 
 	@Override
