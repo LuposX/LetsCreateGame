@@ -58,5 +58,4 @@ public class Player extends Entity{
 		shape = new Rectangle(drawX-10, drawY-10, 20, 20);
 		g.fill(shape);
 	}
-
 }

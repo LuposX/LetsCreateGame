@@ -36,5 +36,14 @@ public class ProjectileSnowball extends Projectile {
 		g.setColor(Color.magenta);
 		g.fill(shape);
 	}
+	
+	//Collisionstest mit Schneeball
+	@Override
+	public void onCollision(Entity en) {
+		if(en != owner) {
+			System.out.println("Treffer");
+			this.wantToDie = true;
+		}
+	}
 
 }
