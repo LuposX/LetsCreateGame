@@ -52,7 +52,9 @@ public class Inventory {
 	public void render(GameContainer gc, Graphics g) {
 		if(isOpen) {
 			//Draw Windows
-			g.setColor(Color.lightGray);
+			Color color1 = new Color(Color.lightGray);
+			color1.a = 0.8f;
+			g.setColor(color1);
 			g.fillRoundRect(10, 10, 500, 460, 50);
 			g.setColor(Color.orange);
 			g.drawString("Aktive Items:", 30, 25);
