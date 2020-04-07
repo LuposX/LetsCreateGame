@@ -5,6 +5,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
+import accessibility.Translator;
 import entities.player.Inventory;
 import entities.projectile.ProjectileSnowball;
 import logic.Controls;
@@ -43,6 +44,6 @@ public class ItemSnowball extends Item{
 		g.setColor(Color.red);
 		g.fillRect(x, y, width, height);
 		g.setColor(Color.orange);
-		g.drawString(displayName, x+5, y);
+		g.drawString(Translator.get("item.snow.name"), x+5, y);
 	}
 }
