@@ -24,8 +24,8 @@ public class Level1 extends BasicGameState{
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-		Controls.init(gc, sbg); // For documentation Check "Controls" class		
 		Controls.map = new TiledMap("res/level1.tmx"); // Loading the level from a tilemap
+		Controls.init(gc, sbg); // For documentation Check "Controls" class		
 	}
 
 	@Override

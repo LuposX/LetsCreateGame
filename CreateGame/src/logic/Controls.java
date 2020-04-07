@@ -24,8 +24,17 @@ public class Controls {
 		
 	public static TiledMap map;
 	
+	public static int LAYER_GROUND;
+	public static int LAYER_WALL;
+	
 	public static void init(GameContainer gc, StateBasedGame sbg) {
+		//belegen der "Halb-Konstanten"
+		LAYER_GROUND = map.getLayerIndex("ground");
+		LAYER_WALL = map.getLayerIndex("wall");
+		
+		
 		entities.add(player);	
+		
 		//Testweises hinzufuegen von Entities
 		entities.add(new Slime(14, 3));
 		entities.add(new ItemEntity(2, 4, new ItemTest()));

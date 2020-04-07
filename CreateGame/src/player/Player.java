@@ -27,19 +27,18 @@ public class Player extends Entity{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Input-Control
-		if(gc.getInput().isKeyDown(Input.KEY_W) || gc.getInput().isControllerUp(gc.getInput().ANY_CONTROLLER)) {
+		if(gc.getInput().isKeyDown(Input.KEY_W)) {
 			posY -= aktuellerSpeed;
 		}
-		if(gc.getInput().isKeyDown(Input.KEY_A) || gc.getInput().isControllerLeft(gc.getInput().ANY_CONTROLLER)) {
+		if(gc.getInput().isKeyDown(Input.KEY_A)) {
 			posX -= aktuellerSpeed;
 		}
-		if(gc.getInput().isKeyDown(Input.KEY_S) || gc.getInput().isControllerDown(gc.getInput().ANY_CONTROLLER)) {
+		if(gc.getInput().isKeyDown(Input.KEY_S)) {
 			posY += aktuellerSpeed;
 		}
-		if(gc.getInput().isKeyDown(Input.KEY_D) || gc.getInput().isControllerRight(gc.getInput().ANY_CONTROLLER)) {
+		if(gc.getInput().isKeyDown(Input.KEY_D)) {
 			posX += aktuellerSpeed;
 		}
-		
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
 			System.out.println("?");
