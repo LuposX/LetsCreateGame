@@ -30,8 +30,8 @@ public class Player extends Entity{
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
-		//Input-Control
-		
+		//Update Inventory
+		inventory.update(gc, sbg, dt);
 		
 		float axisSpeed = aktuellerSpeed; //Die Geschwindigkeit in X bzw. Y Richtung
 		int pressedDirections = 0;

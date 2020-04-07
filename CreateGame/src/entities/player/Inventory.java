@@ -2,6 +2,9 @@ package entities.player;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.state.StateBasedGame;
+
 import items.Item;
 
 public class Inventory {
@@ -17,6 +20,12 @@ public class Inventory {
 	public Inventory(Player playerInst) {
 		inventory = new ArrayList<Item>(); // Creating a new Arraylist for the Inventory
 		player = playerInst; // setting the player Intsanz
+	}
+	
+	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
+		for(Item item : inventory) {
+			item.onPassive();
+		}
 	}
 	
 	public void add_item_to_Inventory(Item item) {
