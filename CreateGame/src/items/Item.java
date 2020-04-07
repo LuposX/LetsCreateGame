@@ -18,7 +18,6 @@ public abstract class Item {
 	 *  3. Implement the abstract methods
 	 */
 	
-	public boolean wantToDie = false; //Wenn true wird es von der Loop in Controls/update gel�scht
 	public String displayName; //Anzeige Name
 	public String[] displayLore; //Anzeige Beschreibung
 	//public Inventory currentInventory = null;
