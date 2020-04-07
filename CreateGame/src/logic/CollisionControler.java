@@ -35,6 +35,10 @@ public class CollisionControler {
 			float posX = pos[0];
 			float posY = pos[1];
 			
+			if(Controls.map.getHeight() <= posY || Controls.map.getWidth() <= posX || posX < 0 || posY < 0) {
+				return true;
+			}
+			
 			if(0 != Controls.map.getTileId((int) posX, (int) posY, layer)){
 				return true;
 			}
