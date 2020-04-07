@@ -12,6 +12,18 @@ import main.Game;
 
 public class LevelMenu extends BasicGameState {
 	
+	/* Level Menu
+	 * ----------
+	 *  This State is the Level Menu. Here can you select different levels you want to play
+	 *  
+	 *  Options:
+	 *  "Play the Game" Play the first real level. Doesn't exist yet 
+	 *  "Playground" A map where you can test different items on enemies.
+	 *  
+	 *  Maybe Future options:
+	 *  "Endless Mode" Defend yourself endless.
+	 */
+	
 	public LevelMenu(int levelmenu) {}
 	
 	@Override
