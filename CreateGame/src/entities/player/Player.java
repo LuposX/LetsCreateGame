@@ -66,9 +66,7 @@ public class Player extends Entity{
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
-			System.out.println("?");
 			if(cooldownPrimary <= 0) {
-				System.out.println("X");
 				Controls.entities.add(new ProjectileSnowball(posX, posY, gc.getInput().getMouseX()/Controls.tileSize, gc.getInput().getMouseY()/Controls.tileSize, this));
 				cooldownPrimary = cooldownPrimaryMax;
 			}
