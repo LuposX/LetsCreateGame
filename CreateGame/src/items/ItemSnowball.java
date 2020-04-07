@@ -8,6 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import accessibility.Translator;
 import entities.player.Inventory;
 import entities.projectile.ProjectileSnowball;
+import logic.Camera;
 import logic.Controls;
 
 public class ItemSnowball extends Item{
@@ -27,7 +28,7 @@ public class ItemSnowball extends Item{
 
 	@Override
 	public void onActive(GameContainer gc, StateBasedGame sbg, int dt) {
-		Controls.entities.add(new ProjectileSnowball(currentInventory.player.posX, currentInventory.player.posY, gc.getInput().getMouseX()/Controls.tileSize, gc.getInput().getMouseY()/Controls.tileSize, currentInventory.player));
+		Controls.entities.add(new ProjectileSnowball(currentInventory.player.posX, currentInventory.player.posY, Camera.getMouseX(gc.getInput())/Controls.tileSize, Camera.getMouseY(gc.getInput())/Controls.tileSize, currentInventory.player));
 	}
 
 	@Override

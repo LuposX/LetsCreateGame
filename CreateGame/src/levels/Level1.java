@@ -9,6 +9,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
+import logic.Camera;
 import logic.Controls;
 
 public class Level1 extends BasicGameState{
@@ -31,6 +32,7 @@ public class Level1 extends BasicGameState{
 	@Override
 	// Hier kommt alles was mit grafik zu tun hat rein
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+		Camera.translate(gc, sbg, g);
 		Controls.map.render(0, 0);
 		Controls.render(gc, g);	
 	}

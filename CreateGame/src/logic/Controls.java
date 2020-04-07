@@ -59,7 +59,8 @@ public class Controls {
 			en.render(gc, g);
 		}
 		
-		//Zeichnen des Inventars
+		//Zeichnen von GUIs
+		Camera.antiTranslate(gc, g);
 		player.inventory.render(gc, g);
 	}
 	
@@ -75,6 +76,9 @@ public class Controls {
 		
 		//Aufrufen des CollisionControlers
 		CollisionControler.detectEntityCollisions(entities);
+		
+		//Aufrufen der Kamera
+		Camera.followEntity(player, gc);
 
 	}
 }
