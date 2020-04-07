@@ -65,7 +65,7 @@ public class Inventory {
 			g.drawRect(30, 50, 50, 50);
 			g.drawRect(100, 50, 50, 50);
 			
-			for(int i = 0; i < 24; i++) {
+			for(int i = 0; i < InventarSlots-2; i++) {
 				float x = 30+(i % 6)*70;
 				float y = 160+(int)(i / 6)*70;
 				
