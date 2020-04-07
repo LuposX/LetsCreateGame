@@ -51,4 +51,20 @@ public class CollisionControler {
 		
 		return false;
 	}
+	/**
+	 * Diese Methode ueberprueft ob eine Koordinate eine Layer beruehrt
+	 * @param posX Die X-Koordinate,posY Die Y-Koordinate, layer Die ID der Layer
+	 * @return true, wenn sie sich beruehren
+	 */
+	public static boolean isCordInLayer(float posX, float posY, int layer) {
+		
+		if(Controls.map.getHeight() <= posY || Controls.map.getWidth() <= posX || posX < 0 || posY < 0) {
+			return true;
+		}
+		if(0 != Controls.map.getTileId((int) posX, (int) posY, layer)){
+			return true;
+		}
+		
+		return false;
+	}
 }

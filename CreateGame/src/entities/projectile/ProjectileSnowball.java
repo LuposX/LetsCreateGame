@@ -8,6 +8,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
+import sun.awt.windows.WWindowPeer;
 
 public class ProjectileSnowball extends Projectile {
 
@@ -16,10 +17,12 @@ public class ProjectileSnowball extends Projectile {
 		super(x, y, velX, velY, own);
 		age = 0;
 		speed = 13;
+		remainingWallHits = 10;
+		wallHitSpeedLoss = 0f;
 	}
 
 	@Override
-	public void update(GameContainer gc, StateBasedGame sbg, int t) {
+	public void updateProjectile(GameContainer gc, StateBasedGame sbg, int t) {
 		posX += directionX*aktuellerSpeed;
 		posY += directionY*aktuellerSpeed;
 		age++;
