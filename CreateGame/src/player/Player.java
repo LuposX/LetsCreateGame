@@ -1,4 +1,4 @@
-package entities;
+package player;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -7,6 +7,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import entities.Entity;
 import entities.projectile.ProjectileSnowball;
 import javafx.geometry.Rectangle2D;
 import logic.Controls;

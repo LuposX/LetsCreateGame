@@ -11,9 +11,9 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import entities.Entity;
 import entities.ItemEntity;
-import entities.Player;
 import entities.hostile.Slime;
 import items.ItemTest;
+import player.Player;
 
 public class Controls {
 	
