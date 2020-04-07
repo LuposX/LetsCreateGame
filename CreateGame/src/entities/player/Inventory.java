@@ -40,9 +40,7 @@ public class Inventory {
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		for(Item item : inventory) {
-			if (item != null) {
-				item.onPassive();
-			}
+			item.onPassive();
 		}
 		if(gc.getInput().isKeyPressed(Input.KEY_E)) {
 			isOpen = !isOpen;
@@ -79,7 +77,6 @@ public class Inventory {
 			//Draw Items
 			for(int i = 0; i < inventory.length; i++) {
 				Item item = inventory[i];
-				if (item != null) {
 				if(i == 0) {
 					item.drawOnScreen(30, 50, 50, 50, gc, g);
 				} else if(i == 1) {
@@ -89,7 +86,6 @@ public class Inventory {
 					float y = 160+(int)((i-2) / 6)*70;
 					item.drawOnScreen(x, y, 50, 50, gc, g);
 				}
-			  }
 			}
 		}
 	}

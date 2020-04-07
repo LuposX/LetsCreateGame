@@ -60,10 +60,9 @@ public class Start extends BasicGameState{
 		//Settings button
 		if((posX > 445 && posX < 520) && (posY > 240 && posY < 260)){
 			if(Mouse.isButtonDown(0)){
-				//sbg.enterState(4); 
-				throw new java.lang.UnsupportedOperationException("Not supported yet.");
-				}
+				sbg.enterState(Game.SETTINGS_MENU); 
 			}
+		}
 		
 		//Exit button
 		if((posX > 430 && posX < 510) && (posY > 140 && posY < 160)){
