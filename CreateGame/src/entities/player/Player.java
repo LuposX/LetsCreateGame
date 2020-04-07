@@ -9,19 +9,23 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
 import entities.projectile.ProjectileSnowball;
+import items.ItemTest;
 import javafx.geometry.Rectangle2D;
 import logic.Controls;
 import net.java.games.input.Component.Identifier.Key;
 
 public class Player extends Entity{
 	
-	
 	public int cooldownPrimary = 0; //Cooldown f�r den Standartangriff | <= 0 hei�t ready
 	public int cooldownPrimaryMax = 10;
+	
+	public Inventory inventory;
 	
 	public Player(float x, float y) {
 		super(x, y);
 		speed = 5;
+		inventory = new Inventory(this); // Create a Inventory for the player and give it the player instanz
+		inventory.add_item_to_Inventory(new ItemTest());
 	}
 
 	@Override

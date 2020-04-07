@@ -5,6 +5,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
+import entities.player.Inventory;
 import logic.Controls;
 
 public abstract class Item {
@@ -20,16 +21,19 @@ public abstract class Item {
 	
 	public String displayName; //Anzeige Name
 	public String[] displayLore; //Anzeige Beschreibung
-	//public Inventory currentInventory = null;
+	public Inventory currentInventory = null; // Inventar in which it is
 	
 	public Item(String displayName) {
 		this.displayName = displayName;
 	}
 	
-	//Wird ausgeführt, wenn passiv (im Inventar) ausgeführt (jedes update)
+	//Wird ausgefï¿½hrt, wenn passiv (im Inventar) ausgefï¿½hrt (jedes update)
 	public abstract void onPassive();
 	
-	//Wird ausgeführt, wenn das Item aktiv benutzt wird.
+	//Wird ausgefï¿½hrt, wenn das Item aktiv benutzt wird.
 	public abstract void onActive();
+	
+	// When we pick up a item
+	public abstract void on_pickup(Inventory currentInventory);
 	
 }
