@@ -7,8 +7,11 @@ import org.newdawn.slick.geom.Shape;
 import entities.Entity;
 
 public class CollisionControler {
-	//Input: Liste der Entities
-	//Diese Methode ruft alle Objekte auf, die eine Kollision haben
+	/**
+	 * Diese Methode ruft alle Objekte auf, die eine Kollision haben
+	 * @param entities Die Liste aller Objekte extending Entity
+	 * @return void
+	 */
 	public static void detectEntityCollisions(ArrayList<Entity> entities) {
 		//Fuer alle Entities (auﬂer das letzte)
 		for(int i = 0; i < entities.size() - 1; i++) {
@@ -26,9 +29,11 @@ public class CollisionControler {
 			}
 		}
 	}
-	//Input: Zu ueberpruefendes Shape und Layer (Alles bezieht sich auf die Tilemap map)
-	//Ueberprueft ob sich die Layer und das Objekt an einem Vertex beruehren
-	//Output: true <- beruehrt; false <- nicht beruehrt
+	/**
+	 * Diese Methode ueberprueft ob eine Hitbox eine Layer beruehrt
+	 * @param hitbox Die Hitbox, layer Die ID der Layer
+	 * @return true, wenn sie sich beruehren
+	 */
 	public static boolean touchesTileLayer(Shape hitbox, int layer) {
 		for(int i = 0; i < hitbox.getPointCount(); i++) {
 			float[] pos = hitbox.getPoint(i);
