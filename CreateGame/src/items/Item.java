@@ -45,6 +45,7 @@ public abstract class Item {
 	}
 	
 	//Malt das Item bei den Koordinaten mit den geg. Ma�en
+	//Wenn du die Groesse des Bildes veraendern willst, dann mach das nicht hier sondern in der entsprechenden Methode
 	public abstract void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g);
 	
 	//Wird ausgef�hrt, wenn passiv (im Inventar) ausgef�hrt (jedes update)

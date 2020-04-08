@@ -53,6 +53,6 @@ public class ItemSnowball extends Item{
 
 	@Override
 	public void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g) {
-		g.drawImage(image, x, y, x+width * 1.5f, y+height * 1.5f,0,0, 15,15); 
+		g.drawImage(image, x, y, x+width, y+height,0,0, 15,15); 
 	}
 }
