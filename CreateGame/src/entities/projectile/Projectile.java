@@ -14,8 +14,8 @@ public abstract class Projectile extends Entity{
 	public float directionY;
 	public Entity owner;
 	
-	public float wallHitSpeedLoss = 0.0f; //Geschwindigkeitsverlust bei Wandtreffer 0.3 = 30%
-	public int remainingWallHits = 1; //Anzahl der moeglichen Wandtreffer
+	public float wallHitSpeedLoss; //Geschwindigkeitsverlust bei Wandtreffer 0.3 = 30%
+	public int remainingWallHits; //Anzahl der moeglichen Wandtreffer
 	
 	//targX und tagrY sind die Koordinaten auf die der Schuss zu Beginn ziehlt
 	public Projectile(float x, float y, float targX, float targY, Entity own) {
@@ -46,6 +46,7 @@ public abstract class Projectile extends Entity{
 	public void testWallCollision() {
 		if(CollisionControler.isCordInLayer(posX, posY, Controls.LAYER_WALL)) {
 			if(remainingWallHits > 0) {
+				float oldAktuellerSpeed = aktuellerSpeed;
 				speed *= (1-wallHitSpeedLoss);
 				remainingWallHits--;
 				
@@ -64,6 +65,10 @@ public abstract class Projectile extends Entity{
 					directionX *= -1;
 					directionY *= -1;
 				}
+				
+				//Pushing the projectile out of the wall
+				posX += directionX*oldAktuellerSpeed;
+				posY += directionY*oldAktuellerSpeed;
 				
 			} else {
 				wantToDie = true;

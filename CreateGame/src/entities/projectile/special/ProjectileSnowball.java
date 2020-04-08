@@ -18,8 +18,8 @@ public class ProjectileSnowball extends Projectile {
 		super(x, y, velX, velY, own);
 		age = 0;
 		speed = 13;
-		remainingWallHits = 10;
-		wallHitSpeedLoss = 0.8f;
+		remainingWallHits = 1;
+		wallHitSpeedLoss = 0.2f;
 	}
 
 	@Override
