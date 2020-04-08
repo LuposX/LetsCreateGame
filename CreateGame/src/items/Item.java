@@ -23,12 +23,35 @@ public abstract class Item {
 	public String displayLore; //Anzeige Beschreibung
 	public Inventory currentInventory = null; // Inventar in which it is
 	
+	public int cooldownPrimary;  // Primary cooldown for a Item
+	public int cooldownSecundary; // Secundary cooldown if it has one
+	
+	public int cooldownAktuell = 0;
+	
+	public boolean hasPassive = false; // set this to true if the item has a passive
+	
+	// falls ein item keine cooldowns hatt
 	public Item(String displayName, String displayLore) {
 		this.displayName = displayName;
-		this.displayLore=displayLore;
+		this.displayLore = displayLore;
 	}
 	
-	//Malt das Item bei den Koordinaten mit den geg. Maßen
+	public Item(String displayName, String displayLore, int cooldownPrimar) {
+		this.displayName = displayName;
+		this.displayLore = displayLore;
+		this.cooldownPrimary = cooldownPrimary;
+		this.cooldownPrimary = cooldownSecundary;
+	}
+	
+	// Ãœberladen falls wir einen 2. cooldown haben
+	public Item(String displayName, String displayLore, int cooldownPrimar, int cooldownSecundary) {
+		this.displayName = displayName;
+		this.displayLore = displayLore;
+		this.cooldownPrimary = cooldownPrimary;
+		this.cooldownSecundary = cooldownSecundary;
+	}
+	
+	//Malt das Item bei den Koordinaten mit den geg. Maï¿½en
 	public abstract void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g);
 	
 	//Wird ausgefï¿½hrt, wenn passiv (im Inventar) ausgefï¿½hrt (jedes update)

@@ -17,9 +17,13 @@ public class ItemTest extends Item{
 	 */
 	
 	public float speed_multiplier = 1.1f;
+	public static int cooldown = 300;
+	public static String itemName = "Testitem";
+	public static String itemDescription = "This is a item for testing\npurposes. \nPassive:\n+10% Speed";
+	
 	
 	public ItemTest() {
-		super("Testitem","This is a item for testing\npurposes. \nPassive:\n+10% Speed");
+		super(itemName, itemDescription);
 	}
 
 	@Override

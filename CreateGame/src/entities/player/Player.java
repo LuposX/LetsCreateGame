@@ -15,13 +15,7 @@ import logic.CollisionControler;
 import logic.Controls;
 import net.java.games.input.Component.Identifier.Key;
 
-public class Player extends Entity{
-	
-	public int cooldownPrimary = 0; //Cooldown fuur den Standartangriff | <= 0 hei�t ready
-	public int cooldownPrimaryMax = 0;
-	public int cooldownSecundary = 0; //Cooldown fuer den Standartangriff | <= 0 hei�t ready
-	public int cooldownSecundaryMax = 10;
-	
+public class Player extends Entity{	
 	public Inventory inventory;
 	
 	public Player(float x, float y) {
@@ -68,23 +62,43 @@ public class Player extends Entity{
 		}
 		
 		if(gc.getInput().isMouseButtonDown(0)) {
-			if(cooldownPrimary <= 0 && inventory.inventory.length > 0 && inventory.inventory[0] != null) {
-				inventory.inventory[0].onActive(gc, sbg, dt);
-				cooldownPrimary = cooldownPrimaryMax;
+			if(inventory.inventory.length > 0 && inventory.inventory[0] != null) {
+				if (inventory.inventory[0].cooldownAktuell <= 0) {
+					inventory.inventory[0].cooldownAktuell = inventory.inventory[0].cooldownPrimary;
+					inventory.inventory[0].onActive(gc, sbg, dt);
+				}
 			}
 		}
-		cooldownPrimary--;
 		
 		if(gc.getInput().isMouseButtonDown(1)) {
-			if(cooldownSecundary <= 0 && inventory.inventory.length > 1 && inventory.inventory[1] != null) {
-				inventory.inventory[1].onActive(gc, sbg, dt);
-				cooldownSecundary = cooldownSecundaryMax;
+			if(inventory.inventory.length > 1 && inventory.inventory[1] != null) {
+				if (inventory.inventory[1].cooldownAktuell <= 0) {
+					inventory.inventory[1].onActive(gc, sbg, dt);
+					inventory.inventory[1].cooldownAktuell = inventory.inventory[1].cooldownSecundary;
+				}
 			}
 		}
-		cooldownSecundary--;
 		
 		//Updating hitbox
 		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+		
+		//on passive
+		for(int i = 0; i < inventory.inventory.length; i++) {
+			if (inventory.inventory[i] != null) {
+				if (inventory.inventory[i].hasPassive) {
+					if (inventory.inventory[i].cooldownAktuell <= 0) {
+						 inventory.inventory[i].onPassive();
+						 inventory.inventory[i].cooldownAktuell =  inventory.inventory[i].cooldownPrimary;
+					}
+				}
+			}
+		}
+		// Update cooldown for every item in inventory
+		for(int i = 0; i < inventory.inventory.length; i++) {
+			if (inventory.inventory[i] != null) {
+				 inventory.inventory[i].cooldownAktuell -= dt;
+			}
+		}
 	}
 
 	@Override
