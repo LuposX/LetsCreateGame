@@ -68,6 +68,9 @@ public class Inventory {
 	}
 	
 	public void render(GameContainer gc, Graphics g) {
+		
+		float drawUnit = gc.getHeight()/480f;
+		
 		if(isInventoryFull) {
 			message_Inventory_full(gc, g);
 		}
@@ -77,23 +80,23 @@ public class Inventory {
 			Color color1 = new Color(Color.lightGray);
 			color1.a = 0.8f;
 			g.setColor(color1);
-			g.fillRoundRect(10, 10, 500, 460, 50);
+			g.fillRoundRect(10*drawUnit, 10*drawUnit, 500*drawUnit, 460*drawUnit, (int) (50*drawUnit));
 			g.setColor(Color.orange);
-			g.drawString("Aktive Items:", 30, 25);
-			g.drawString("Sonstige Items:", 30, 120);
+			g.drawString("Aktive Items:", 30*drawUnit, 25*drawUnit);
+			g.drawString("Sonstige Items:", 30*drawUnit, 120*drawUnit);
 			
 			//Draw Slots
 			g.setColor(Color.black);
-			g.setLineWidth(5);
+			g.setLineWidth(5*drawUnit);
 			
-			g.drawRect(30, 50, 50, 50);
-			g.drawRect(100, 50, 50, 50);
+			g.drawRect(30*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
+			g.drawRect(100*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
 			
 			for(int i = 0; i < InventarSlots-2; i++) {
-				float x = 30+(i % 6)*70;
-				float y = 160+(int)(i / 6)*70;
+				float x = (30+(i % 6)*70)*drawUnit;
+				float y = (160+(int)(i / 6)*70)*drawUnit;
 				
-				g.drawRect(x, y, 50, 50);
+				g.drawRect(x, y, 50*drawUnit, 50*drawUnit);
 			}
 			
 			g.resetLineWidth();
@@ -102,13 +105,13 @@ public class Inventory {
 			for(int i = 0; i < inventory.length; i++) {
 				Item item = inventory[i];
 				if(i == 0) {
-					item.drawOnScreen(30, 50, 50, 50, gc, g);
+					item.drawOnScreen(30*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
 				} else if(i == 1) {
-					item.drawOnScreen(100, 50, 50, 50, gc, g);
+					item.drawOnScreen(100*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
 				} else {
-					float x = 30+((i-2) % 6)*70;
-					float y = 160+(int)((i-2) / 6)*70;
-					item.drawOnScreen(x, y, 50, 50, gc, g);
+					float x = (30+((i-2) % 6)*70)*drawUnit;
+					float y = (160+(int)((i-2) / 6)*70)*drawUnit;
+					item.drawOnScreen(x, y, 50*drawUnit, 50*drawUnit, gc, g);
 				}
 			}
 		}
@@ -142,7 +145,5 @@ public class Inventory {
 		 * @param x Die X-Koordinate des gesuchten Slots, y Die Y-Koordinate des gesuchten Slots
 		 * @return void 
 		 */
-		
-		
 	}
 }
