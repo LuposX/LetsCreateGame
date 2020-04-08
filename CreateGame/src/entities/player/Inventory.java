@@ -135,4 +135,14 @@ public class Inventory {
 		inventory[0] = inventory[idx];
 		inventory[idx] = temp;
 	}
+	
+	public void getSlot(float x, float y) {
+		/* Gibt den Slot zurueck, der auf den Koordinaten liegt.
+		 * Befindet sich dort kein Slot, so wird -1 zurueckgegeben.
+		 * @param x Die X-Koordinate des gesuchten Slots, y Die Y-Koordinate des gesuchten Slots
+		 * @return void 
+		 */
+		
+		
+	}
 }
