@@ -36,6 +36,19 @@ public class Inventory {
 		player = playerInst; // setting the player Intsanz
 	}
 	
+	public boolean isFull() {
+		
+		if(inventory.length < InventarSlots) {return false;}
+		
+		for(int i = 0; i < inventory.length; i++) {
+			if(inventory[i] == null) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
 	public void append_to_Inventory(Item item) {
 		/* This methods appends the inventory array and add a item to it.
 		 * 
@@ -43,9 +56,23 @@ public class Inventory {
 		 * @return void
 		 */
 		if (inventory.length >= InventarSlots) {
-			System.err.print("inventar full");
-			isInventoryFull = true;
+			boolean isFull = true;
+			System.out.println(inventory.length);
+			for(int i = 0; i < inventory.length; i++) {
+				System.out.println(inventory[i]);
+				if(inventory[i] == null) {
+					isFull = false;
+					isInventoryFull = false;
+					inventory[i] = item;
+					break;
+				}
+			}
+			if(isFull) {
+				System.err.print("inventar full");
+				isInventoryFull = true;
+			}
 		} else {
+			System.out.println(inventory.length);
 			isInventoryFull = false;
 			inventory = Arrays.copyOf(inventory, inventory.length + 1);
 			inventory[inventory.length - 1] = item;
@@ -64,7 +91,9 @@ public class Inventory {
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		for(Item item : inventory) {
-			item.onPassive();
+			if(item != null) {
+				item.onPassive();
+			}
 		}
 		if(gc.getInput().isKeyPressed(Input.KEY_E)) {
 			isOpen = !isOpen;
@@ -80,7 +109,7 @@ public class Inventory {
 				
 				int cSlot = getSlot(gc.getInput().getMouseX(), gc.getInput().getMouseY());
 				
-				if(cSlot != -1 && cSlot < inventory.length && inventory[cSlot] != null && lastClickedSlot < inventory.length && inventory[lastClickedSlot] != null) {
+				if(cSlot != -1 && cSlot < inventory.length && lastClickedSlot < inventory.length && inventory[lastClickedSlot] != null) {
 					Item temp = inventory[lastClickedSlot];
 					inventory[lastClickedSlot] = inventory[cSlot];
 					inventory[cSlot] = temp;
@@ -89,7 +118,12 @@ public class Inventory {
 				lastClickedSlot = -1;
 			}
 		}
-		
+		//Fuellen des Inventars mit leeren Objekten
+		if(isOpen) {
+			if(inventory.length < InventarSlots) {
+				append_to_Inventory(null);
+			}
+		}
 	}
 	
 	public void render(GameContainer gc, Graphics g) {
@@ -129,14 +163,16 @@ public class Inventory {
 			//Draw Items
 			for(int i = 0; i < inventory.length; i++) {
 				Item item = inventory[i];
-				if(i == 0) {
-					item.drawOnScreen(30*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
-				} else if(i == 1) {
-					item.drawOnScreen(100*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
-				} else {
-					float x = (30+((i-2) % 6)*70)*drawUnit;
-					float y = (160+(int)((i-2) / 6)*70)*drawUnit;
-					item.drawOnScreen(x, y, 50*drawUnit, 50*drawUnit, gc, g);
+				if(item != null) {
+					if(i == 0) {
+						item.drawOnScreen(30*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
+					} else if(i == 1) {
+						item.drawOnScreen(100*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
+					} else {
+						float x = (30+((i-2) % 6)*70)*drawUnit;
+						float y = (160+(int)((i-2) / 6)*70)*drawUnit;
+						item.drawOnScreen(x, y, 50*drawUnit, 50*drawUnit, gc, g);
+					}
 				}
 			}
 			
