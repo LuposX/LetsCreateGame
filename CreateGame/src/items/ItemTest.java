@@ -18,7 +18,7 @@ public class ItemTest extends Item{
 	public float speed_multiplier = 1.1f;
 	
 	public ItemTest() {
-		super("Test");
+		super("Testitem","Dies ist ein super tolles \nTestitem\nMega stark!!!");
 	}
 
 	@Override
@@ -44,7 +44,5 @@ public class ItemTest extends Item{
 	public void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g) {
 		g.setColor(Color.darkGray);
 		g.fillRect(x, y, width, height);
-		g.setColor(Color.orange);
-		g.drawString(displayName, x+5, y);
 	}
 }

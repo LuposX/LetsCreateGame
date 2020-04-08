@@ -181,6 +181,19 @@ public class Inventory {
 				Item item = inventory[lastClickedSlot];
 				item.drawOnScreen(gc.getInput().getMouseX()-15*drawUnit, gc.getInput().getMouseY()-15*drawUnit, drawUnit*30, drawUnit*30, gc, g);
 			}
+			
+			//Itembeschreibung
+			int hoverSlot = getSlot(gc.getInput().getMouseX(), gc.getInput().getMouseY());
+			if(hoverSlot != -1 && hoverSlot < inventory.length && inventory[hoverSlot] != null) {
+				Item item = inventory[hoverSlot];
+				
+				g.setColor(Color.blue);
+				g.fillRoundRect(gc.getInput().getMouseX()+20, gc.getInput().getMouseY()+10, 300, 70+item.displayLore.split("\n").length*20,5);
+				g.setColor(Color.orange);
+				g.drawString(item.displayName + ":", gc.getInput().getMouseX()+30, gc.getInput().getMouseY()+30);
+				g.setColor(Color.magenta);
+				g.drawString(item.displayLore, gc.getInput().getMouseX()+30, gc.getInput().getMouseY()+60);
+			}
 		}
 	}
 	

@@ -20,11 +20,12 @@ public abstract class Item {
 	 */
 	
 	public String displayName; //Anzeige Name
-	public String[] displayLore; //Anzeige Beschreibung
+	public String displayLore; //Anzeige Beschreibung
 	public Inventory currentInventory = null; // Inventar in which it is
 	
-	public Item(String displayName) {
+	public Item(String displayName, String displayLore) {
 		this.displayName = displayName;
+		this.displayLore=displayLore;
 	}
 	
 	//Malt das Item bei den Koordinaten mit den geg. Maﬂen

@@ -19,7 +19,7 @@ public class ItemSnowball extends Item{
 	
 	
 	public ItemSnowball() {
-		super("Snow");
+		super("Snowballgun","This is a very nice \nSnowballgun");
 	}
 
 	@Override
@@ -44,7 +44,5 @@ public class ItemSnowball extends Item{
 	public void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g) {
 		g.setColor(Color.red);
 		g.fillRect(x, y, width, height);
-		g.setColor(Color.orange);
-		g.drawString(Translator.get("item.snow.name"), x+5, y);
 	}
 }
