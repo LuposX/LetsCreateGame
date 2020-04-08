@@ -30,6 +30,7 @@ public class Inventory {
 	
 	public int lastClickedSlot = -1; //SlotID des zuletzt geklickten Slots
 	
+	
 	public Inventory(Player playerInst) {
 		inventory = new Item[0]; // Creating a new Arraylist for the Inventory
 		player = playerInst; // setting the player Intsanz
@@ -72,10 +73,21 @@ public class Inventory {
 		//Ueberpruefen von Inventarklicks
 		if(isOpen) {
 			if(gc.getInput().isMousePressed(0)) {
-				int sId = getSlot(gc.getInput().getMouseX(), gc.getInput().getMouseY());
-				System.out.println(sId);
+				lastClickedSlot = getSlot(gc.getInput().getMouseX(), gc.getInput().getMouseY());
 			}
-			//Nicht fertig WIP
+			if(lastClickedSlot != -1 && !gc.getInput().isMouseButtonDown(0)) {
+				//Loslassen des Items
+				
+				int cSlot = getSlot(gc.getInput().getMouseX(), gc.getInput().getMouseY());
+				
+				if(cSlot != -1 && cSlot < inventory.length && inventory[cSlot] != null && lastClickedSlot < inventory.length && inventory[lastClickedSlot] != null) {
+					Item temp = inventory[lastClickedSlot];
+					inventory[lastClickedSlot] = inventory[cSlot];
+					inventory[cSlot] = temp;
+				}
+				
+				lastClickedSlot = -1;
+			}
 		}
 		
 	}
