@@ -39,7 +39,7 @@ public class ProjectileSnowball extends Projectile {
 	public void render(GameContainer gc, Graphics g) {
 		shape = new Rectangle(drawX-2,drawY-2,4,4);
 		
-		g.setColor(Color.magenta);
+		g.setColor(Color.white);
 		g.fill(shape);
 	}
 	
