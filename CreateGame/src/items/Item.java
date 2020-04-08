@@ -2,6 +2,7 @@ package items;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
@@ -30,7 +31,11 @@ public abstract class Item {
 	
 	public boolean hasPassive = false; // set this to true if the item has a passive
 	
+	public Image image; //Image of the Item
+	
 	// falls ein item keine cooldowns hatt
+	public Image image; //Image of the Item
+	
 	public Item(String displayName, String displayLore) {
 		this.displayName = displayName;
 		this.displayLore = displayLore;
