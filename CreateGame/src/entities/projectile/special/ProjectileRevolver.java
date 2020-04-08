@@ -11,14 +11,14 @@ import entities.Entity;
 import entities.projectile.Projectile;
 import sun.awt.windows.WWindowPeer;
 
-public class ProjectileSnowball extends Projectile {
+public class ProjectileRevolver extends Projectile {
 
 	
-	public ProjectileSnowball(float x, float y, float velX, float velY, Entity own) {
+	public ProjectileRevolver(float x, float y, float velX, float velY, Entity own) {
 		super(x, y, velX, velY, own);
 		age = 0;
-		speed = 10;
-		remainingWallHits = 0; // Scnee prallt nicht ab
+		speed = 16;
+		remainingWallHits = 10;
 		wallHitSpeedLoss = 0.5f;
 	}
 
@@ -40,7 +40,7 @@ public class ProjectileSnowball extends Projectile {
 	public void render(GameContainer gc, Graphics g) {
 		shape = new Rectangle(drawX-2,drawY-2,4,4);
 		
-		g.setColor(Color.white);
+		g.setColor(Color.black);
 		g.fill(shape);
 	}
 	
