@@ -48,6 +48,7 @@ public class ItemEntity extends Entity{
 					this.wantToDie = true;
 				} else {
 					p.inventory.isInventoryFull = true;
+					p.inventory.iventoryIsFullMessageDurationAktuell = 0; // used for diplaying inventory is full message
 				}
 			} else {
 				pickUpDelay = 200;

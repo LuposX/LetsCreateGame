@@ -29,9 +29,9 @@ public class Inventory {
 	public boolean isInventoryFull = false; // Zeigt ob das Inventory full ist
 	
 	public float drawUnit = 0; //Einheit zum Zeichnen des Bildschirms
-	
 	public int lastClickedSlot = -1; //SlotID des zuletzt geklickten Slots
-	
+	public int iventoryIsFullMessageDurationMax = 1000; // how long the message should stay on the screen
+	public int iventoryIsFullMessageDurationAktuell = iventoryIsFullMessageDurationMax + 2;
 	
 	public Inventory(Player playerInst) {
 		inventory = new Item[0]; // Creating a new Arraylist for the Inventory
@@ -89,6 +89,12 @@ public class Inventory {
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
+		
+		// gets executed to minimize cooldown for error message
+		if(iventoryIsFullMessageDurationAktuell <= iventoryIsFullMessageDurationMax) {
+			iventoryIsFullMessageDurationAktuell += dt;
+		}
+		
 		for(Item item : inventory) {
 			if(item != null) {
 				item.onPassive();
@@ -134,9 +140,9 @@ public class Inventory {
 		
 		drawUnit = gc.getHeight()/480f;
 		
-		if(isInventoryFull) {
+		if(iventoryIsFullMessageDurationAktuell <= iventoryIsFullMessageDurationMax) {
 			message_Inventory_full(gc, g);
-		}
+		} 
 		
 		if(isOpen) {
 			//Draw Windows
