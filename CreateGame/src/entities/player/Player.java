@@ -8,8 +8,8 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
-import entities.projectile.ProjectileSnowball;
-import items.ItemTest;
+import entities.projectile.special.ProjectileSnowball;
+import items.special.ItemTest;
 import javafx.geometry.Rectangle2D;
 import logic.CollisionControler;
 import logic.Controls;
@@ -18,7 +18,7 @@ import net.java.games.input.Component.Identifier.Key;
 public class Player extends Entity{
 	
 	public int cooldownPrimary = 0; //Cooldown fuur den Standartangriff | <= 0 hei�t ready
-	public int cooldownPrimaryMax = 10;
+	public int cooldownPrimaryMax = 0;
 	public int cooldownSecundary = 0; //Cooldown fuer den Standartangriff | <= 0 hei�t ready
 	public int cooldownSecundaryMax = 10;
 	

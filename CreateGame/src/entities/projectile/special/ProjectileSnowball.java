@@ -1,4 +1,4 @@
-package entities.projectile;
+package entities.projectile.special;
 
 
 import org.newdawn.slick.Color;
@@ -8,6 +8,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
+import entities.projectile.Projectile;
 import sun.awt.windows.WWindowPeer;
 
 public class ProjectileSnowball extends Projectile {
@@ -18,7 +19,7 @@ public class ProjectileSnowball extends Projectile {
 		age = 0;
 		speed = 13;
 		remainingWallHits = 10;
-		wallHitSpeedLoss = 0.0f;
+		wallHitSpeedLoss = 0.8f;
 	}
 
 	@Override
