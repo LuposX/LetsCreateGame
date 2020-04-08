@@ -66,6 +66,8 @@ public class Player extends Entity{
 				if (inventory.inventory[0].cooldownAktuell <= 0) {
 					inventory.inventory[0].cooldownAktuell = inventory.inventory[0].cooldownPrimary;
 					inventory.inventory[0].onActive(gc, sbg, dt);
+				} else {
+					inventory.inventory[0].cooldownAktuell -= dt;
 				}
 			}
 		}
@@ -74,10 +76,13 @@ public class Player extends Entity{
 			if(inventory.inventory.length > 1 && inventory.inventory[1] != null) {
 				if (inventory.inventory[1].cooldownAktuell <= 0) {
 					inventory.inventory[1].onActive(gc, sbg, dt);
-					inventory.inventory[1].cooldownAktuell = inventory.inventory[1].cooldownSecundary;
+					inventory.inventory[1].cooldownAktuell = inventory.inventory[1].cooldownPrimary;
+				} else {
+					inventory.inventory[1].cooldownAktuell -= dt;
 				}
 			}
 		}
+		
 		
 		//Updating hitbox
 		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);

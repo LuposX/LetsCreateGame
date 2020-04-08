@@ -25,7 +25,6 @@ public abstract class Item {
 	public Inventory currentInventory = null; // Inventar in which it is
 	
 	public int cooldownPrimary;  // Primary cooldown for a Item
-	public int cooldownSecundary; // Secundary cooldown if it has one
 	
 	public int cooldownAktuell = 0;
 	
@@ -39,19 +38,10 @@ public abstract class Item {
 		this.displayLore = displayLore;
 	}
 	
-	public Item(String displayName, String displayLore, int cooldownPrimar) {
+	public Item(String displayName, String displayLore, int cooldownPrimary) {
 		this.displayName = displayName;
 		this.displayLore = displayLore;
 		this.cooldownPrimary = cooldownPrimary;
-		this.cooldownPrimary = cooldownSecundary;
-	}
-	
-	// Überladen falls wir einen 2. cooldown haben
-	public Item(String displayName, String displayLore, int cooldownPrimar, int cooldownSecundary) {
-		this.displayName = displayName;
-		this.displayLore = displayLore;
-		this.cooldownPrimary = cooldownPrimary;
-		this.cooldownSecundary = cooldownSecundary;
 	}
 	
 	//Malt das Item bei den Koordinaten mit den geg. Ma�en

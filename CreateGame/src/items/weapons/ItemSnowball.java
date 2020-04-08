@@ -19,7 +19,7 @@ public class ItemSnowball extends Item{
 	 * 
 	 */
 	
-	public static int cooldownMax = 3000;
+	public static int cooldownMax = 300;
 	public static String itemName = "Snowballgun";
 	public static String itemDescription = "Active: \nthroughs a snowball \ninto your face";
 	
