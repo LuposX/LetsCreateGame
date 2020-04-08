@@ -139,6 +139,12 @@ public class Inventory {
 					item.drawOnScreen(x, y, 50*drawUnit, 50*drawUnit, gc, g);
 				}
 			}
+			
+			//Zeichnen eines getragenen Items
+			if(lastClickedSlot != -1 && lastClickedSlot < inventory.length && inventory[lastClickedSlot] != null) {
+				Item item = inventory[lastClickedSlot];
+				item.drawOnScreen(gc.getInput().getMouseX()-15*drawUnit, gc.getInput().getMouseY()-15*drawUnit, drawUnit*30, drawUnit*30, gc, g);
+			}
 		}
 	}
 	
