@@ -66,8 +66,6 @@ public class Player extends Entity{
 				if (inventory.inventory[0].cooldownAktuell <= 0) {
 					inventory.inventory[0].cooldownAktuell = inventory.inventory[0].cooldownPrimary;
 					inventory.inventory[0].onActive(gc, sbg, dt);
-				} else {
-					inventory.inventory[0].cooldownAktuell -= dt;
 				}
 			}
 		}
@@ -77,8 +75,6 @@ public class Player extends Entity{
 				if (inventory.inventory[1].cooldownAktuell <= 0) {
 					inventory.inventory[1].onActive(gc, sbg, dt);
 					inventory.inventory[1].cooldownAktuell = inventory.inventory[1].cooldownPrimary;
-				} else {
-					inventory.inventory[1].cooldownAktuell -= dt;
 				}
 			}
 		}
