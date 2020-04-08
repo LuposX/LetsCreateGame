@@ -25,7 +25,10 @@ public class Inventory {
 	
 	public boolean isOpen = false; //Zeigt ob das Inv geoeffnet ist
 	public boolean isInventoryFull = false; // Zeigt ob das Inventory full ist
-
+	
+	public float drawUnit = 0; //Einheit zum Zeichnen des Bildschirms
+	
+	public int lastClickedSlot = -1; //SlotID des zuletzt geklickten Slots
 	
 	public Inventory(Player playerInst) {
 		inventory = new Item[0]; // Creating a new Arraylist for the Inventory
@@ -65,11 +68,21 @@ public class Inventory {
 		if(gc.getInput().isKeyPressed(Input.KEY_E)) {
 			isOpen = !isOpen;
 		}
+		
+		//Ueberpruefen von Inventarklicks
+		if(isOpen) {
+			if(gc.getInput().isMousePressed(0)) {
+				int sId = getSlot(gc.getInput().getMouseX(), gc.getInput().getMouseY());
+				System.out.println(sId);
+			}
+			//Nicht fertig WIP
+		}
+		
 	}
 	
 	public void render(GameContainer gc, Graphics g) {
 		
-		float drawUnit = gc.getHeight()/480f;
+		drawUnit = gc.getHeight()/480f;
 		
 		if(isInventoryFull) {
 			message_Inventory_full(gc, g);
@@ -139,11 +152,29 @@ public class Inventory {
 		inventory[idx] = temp;
 	}
 	
-	public void getSlot(float x, float y) {
+	public int getSlot(float x, float y) {
 		/* Gibt den Slot zurueck, der auf den Koordinaten liegt.
 		 * Befindet sich dort kein Slot, so wird -1 zurueckgegeben.
 		 * @param x Die X-Koordinate des gesuchten Slots, y Die Y-Koordinate des gesuchten Slots
 		 * @return void 
 		 */
+		
+		if(x > 30*drawUnit && y > 50*drawUnit && x < 80*drawUnit && y < 100*drawUnit) {
+			return 0;
+		}
+		if(x > 100*drawUnit && y > 50*drawUnit && x < 150*drawUnit && y < 100*drawUnit) {
+			return 1;
+		}
+		
+		for(int i = 0; i < InventarSlots-2; i++) {
+			float mX = (30+(i % 6)*70)*drawUnit;
+			float mY = (160+(int)(i / 6)*70)*drawUnit;
+			
+			if(x > mX && y > mY && y < mY + 50*drawUnit && x < mX + 50*drawUnit) {
+				return i + 2;
+			}
+		}
+		
+		return -1;
 	}
 }
