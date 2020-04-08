@@ -19,7 +19,7 @@ public class ItemSnowball extends Item{
 	
 	
 	public ItemSnowball() {
-		super("Snowballgun","This is a very nice \nSnowballgun");
+		super("Snowballgun","Active: \nthroughs a snowball \ninto your face");
 	}
 
 	@Override

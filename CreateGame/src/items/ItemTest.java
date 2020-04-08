@@ -18,7 +18,7 @@ public class ItemTest extends Item{
 	public float speed_multiplier = 1.1f;
 	
 	public ItemTest() {
-		super("Testitem","Dies ist ein super tolles \nTestitem\nMega stark!!!");
+		super("Testitem","This is a item for testing\npurposes. \nPassive:\n+10% Speed");
 	}
 
 	@Override
