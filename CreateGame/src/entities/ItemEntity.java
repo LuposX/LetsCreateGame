@@ -13,12 +13,12 @@ import entities.player.Player;
 public class ItemEntity extends Entity{
 
 	public Item theItem; //das Item, welches zu diesem Entity geh�rt.
-	public int pickUpDelay;
+	public int pickUpDelay; //Delay, damit man das Item nach dem Droppen nicht direkt wieder einsammelt
 	
 	public ItemEntity(float x, float y, Item theItem) {
 		super(x, y);
 		this.theItem = theItem;
-		pickUpDelay = 3000;
+		pickUpDelay = 300;
 	}
 
 	@Override
@@ -39,8 +39,8 @@ public class ItemEntity extends Entity{
 	
 	@Override
 	public void onCollision(Entity en) {
-		if(pickUpDelay <= 0) {
-			if (en instanceof Player) {
+		if(en instanceof Player) {
+			if (pickUpDelay <= 0) {
 				Player p = (Player) en;
 				if (!p.inventory.isFull()) {
 					theItem.currentInventory = p.inventory;
@@ -49,6 +49,8 @@ public class ItemEntity extends Entity{
 				} else {
 					p.inventory.isInventoryFull = true;
 				}
+			} else {
+				pickUpDelay = 200;
 			}
 		}
 	}
