@@ -3,6 +3,8 @@ package items.weapons;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.player.Inventory;
@@ -17,9 +19,13 @@ public class ItemSnowball extends Item{
 	 * 
 	 */
 	
-	
 	public ItemSnowball() {
 		super("Snowballgun","Active: \nthroughs a snowball \ninto your face");
+		try {
+			image = new Image("res/textures/items/snowgun.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -42,7 +48,6 @@ public class ItemSnowball extends Item{
 
 	@Override
 	public void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g) {
-		g.setColor(Color.red);
-		g.fillRect(x, y, width, height);
+		g.drawImage(image, x, y, x+width, y+height,0,0,15,15);
 	}
 }
