@@ -33,8 +33,6 @@ public abstract class Item {
 	
 	public Image image; //Image of the Item
 	
-	// falls ein item keine cooldowns hatt
-	public Image image; //Image of the Item
 	
 	public Item(String displayName, String displayLore) {
 		this.displayName = displayName;

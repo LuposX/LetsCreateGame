@@ -82,17 +82,6 @@ public class Player extends Entity{
 		//Updating hitbox
 		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
 		
-		//on passive
-		for(int i = 0; i < inventory.inventory.length; i++) {
-			if (inventory.inventory[i] != null) {
-				if (inventory.inventory[i].hasPassive) {
-					if (inventory.inventory[i].cooldownAktuell <= 0) {
-						 inventory.inventory[i].onPassive();
-						 inventory.inventory[i].cooldownAktuell =  inventory.inventory[i].cooldownPrimary;
-					}
-				}
-			}
-		}
 		// Update cooldown for every item in inventory
 		for(int i = 0; i < inventory.inventory.length; i++) {
 			if (inventory.inventory[i] != null) {
