@@ -24,7 +24,7 @@ public class ItemEntity extends Entity{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Hier soll das Item logisch ueberprueft werden
-		hitbox = new Rectangle(posX-5f/32, posY-5f/32, 10f/32, 10f/32);
+		hitbox = new Rectangle(posX-8f/32, posY-8f/32, 16f/32, 16f/32);
 		
 		if(pickUpDelay > 0) {pickUpDelay -= dt;}
 	}
@@ -34,7 +34,7 @@ public class ItemEntity extends Entity{
 		//Hier soll das Item gezeichnet werden. Um zu ueberpruefen um welches
 		//Item es sich handelt nutze "theItem instanceof ItemTest"
 		shape = new Rectangle(drawX-5, drawY-5, 10, 10);
-		theItem.drawOnScreen(drawX-5, drawY-5, 10, 10, gc, g);
+		theItem.drawOnScreen(drawX-8, drawY-8, 16, 16, gc, g);
 	}
 	
 	@Override
