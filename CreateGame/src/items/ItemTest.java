@@ -37,7 +37,7 @@ public class ItemTest extends Item{
 
 	@Override
 	public void onPassiveDeactivation() {
-
+		currentInventory.player.speed /= speed_multiplier;
 	}
 
 	@Override

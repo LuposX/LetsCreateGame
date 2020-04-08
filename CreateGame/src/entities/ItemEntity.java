@@ -12,17 +12,21 @@ import entities.player.Player;
 
 public class ItemEntity extends Entity{
 
-	Item theItem; //das Item, welches zu diesem Entity geh�rt.
+	public Item theItem; //das Item, welches zu diesem Entity geh�rt.
+	public int pickUpDelay;
 	
 	public ItemEntity(float x, float y, Item theItem) {
 		super(x, y);
 		this.theItem = theItem;
+		pickUpDelay = 3000;
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Hier soll das Item logisch ueberprueft werden
 		hitbox = new Rectangle(posX-5f/32, posY-5f/32, 10f/32, 10f/32);
+		
+		if(pickUpDelay > 0) {pickUpDelay -= dt;}
 	}
 
 	@Override
@@ -35,14 +39,16 @@ public class ItemEntity extends Entity{
 	
 	@Override
 	public void onCollision(Entity en) {
-		if (en instanceof Player) {
-			Player p = (Player) en;
-			theItem.currentInventory = p.inventory;
-			if (!p.inventory.isFull()) {
-				theItem.currentInventory.add_item_to_Inventory(theItem);
-				this.wantToDie = true;
-			} else {
-				p.inventory.isInventoryFull = true;
+		if(pickUpDelay <= 0) {
+			if (en instanceof Player) {
+				Player p = (Player) en;
+				if (!p.inventory.isFull()) {
+					theItem.currentInventory = p.inventory;
+					theItem.currentInventory.add_item_to_Inventory(theItem);
+					this.wantToDie = true;
+				} else {
+					p.inventory.isInventoryFull = true;
+				}
 			}
 		}
 	}

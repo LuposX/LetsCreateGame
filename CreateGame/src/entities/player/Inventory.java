@@ -10,7 +10,9 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
 
+import entities.ItemEntity;
 import items.Item;
+import logic.Controls;
 
 public class Inventory {
 	/* Inventory class
@@ -57,9 +59,7 @@ public class Inventory {
 		 */
 		if (inventory.length >= InventarSlots) {
 			boolean isFull = true;
-			System.out.println(inventory.length);
 			for(int i = 0; i < inventory.length; i++) {
-				System.out.println(inventory[i]);
 				if(inventory[i] == null) {
 					isFull = false;
 					isInventoryFull = false;
@@ -72,7 +72,6 @@ public class Inventory {
 				isInventoryFull = true;
 			}
 		} else {
-			System.out.println(inventory.length);
 			isInventoryFull = false;
 			inventory = Arrays.copyOf(inventory, inventory.length + 1);
 			inventory[inventory.length - 1] = item;
@@ -123,6 +122,11 @@ public class Inventory {
 			if(inventory.length < InventarSlots) {
 				append_to_Inventory(null);
 			}
+		}
+		
+		//Droppen von Items
+		if(gc.getInput().isKeyPressed(Input.KEY_Q) && isOpen) {
+			dropItem(getSlot(gc.getInput().getMouseX(), gc.getInput().getMouseY()));
 		}
 	}
 	
@@ -243,5 +247,20 @@ public class Inventory {
 		}
 		
 		return -1;
+	}
+	
+	public void dropItem(int itemSlot) {
+		/* Dropt das Item vom gegebenen Slot
+		 * @param itemSlot Die ID des Slots
+		 * @return void 
+		 */
+		if(itemSlot != -1 && itemSlot < inventory.length && inventory[itemSlot] != null) {
+			Item item = inventory[itemSlot];
+			
+			Controls.entities.add(new ItemEntity(player.posX, player.posY, item));
+			inventory[itemSlot] = null;
+			item.onPassiveDeactivation(); // we deactivate the passive of our item
+			item.currentInventory = null;
+		}
 	}
 }
