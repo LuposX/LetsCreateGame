@@ -48,8 +48,6 @@ public class ProjectileSnowball extends Projectile {
 	@Override
 	public void onCollision(Entity en) {
 		if(en != owner) {
-			System.out.println("Treffer");
-			this.wantToDie = true;
 		}
 	}
 
