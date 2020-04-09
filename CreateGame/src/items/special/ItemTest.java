@@ -7,8 +7,9 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.player.Inventory;
 import items.Item;
+import items.Shoe;
 
-public class ItemTest extends Item{
+public class ItemTest extends Shoe{
 	/* Test item
 	 * ------------
 	 * For Demonstratring how to add a item. This one adds 
@@ -16,10 +17,10 @@ public class ItemTest extends Item{
 	 * 
 	 */
 	
-	public float speed_multiplier = 1.1f;
+	public float speed_multiplier = 1.5f;
 	public static int cooldown = 300;
-	public static String itemName = "Testitem";
-	public static String itemDescription = "This is a item for testing\npurposes. \nPassive:\n+10% Speed";
+	public static String itemName = "Testschuhe";
+	public static String itemDescription = "This is a item for testing\npurposes. \nPassive:\n  +50% Speed";
 	
 	
 	public ItemTest() {
@@ -28,6 +29,12 @@ public class ItemTest extends Item{
 
 	@Override
 	public void onPassive() {
+		if(!isCarried && currentInventory != null && currentInventory.inventory.length > 2&& currentInventory.inventory[2] == this) {
+			onPassiveActivation();
+		}
+		if(isCarried && (currentInventory == null || currentInventory.inventory[2] != this)) {
+			onPassiveDeactivation();
+		}
 	}
 
 	@Override
@@ -38,11 +45,13 @@ public class ItemTest extends Item{
 	@Override
 	public void onPassiveActivation() {
 		currentInventory.player.speed *= speed_multiplier;
+		isCarried = true;
 	}
 
 	@Override
 	public void onPassiveDeactivation() {
 		currentInventory.player.speed /= speed_multiplier;
+		isCarried = false;
 	}
 
 	@Override

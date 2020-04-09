@@ -152,7 +152,7 @@ public class Inventory {
 			g.fillRoundRect(10*drawUnit, 10*drawUnit, 500*drawUnit, 460*drawUnit, (int) (50*drawUnit));
 			g.setColor(Color.orange);
 			g.drawString("Aktive Items:", 30*drawUnit, 25*drawUnit);
-			g.drawString("Ruestung:", 30*drawUnit, 125*drawUnit);
+			g.drawString("Schuhe / Hose / Brustplatte / Helm:", 30*drawUnit, 125*drawUnit);
 			g.drawString("Sonstige Items:", 30*drawUnit, 225*drawUnit);
 			
 			//Draw Slots
@@ -230,7 +230,6 @@ public class Inventory {
 		 * @return void 
 		 */
 		append_to_Inventory(item); // we add out item to the inventory
-		item.onPassiveActivation(); // we execute the passive of our item
 	}
 	
 	public void equip_item_from_Inventory(int idx) {
@@ -291,9 +290,10 @@ public class Inventory {
 		if(itemSlot != -1 && itemSlot < inventory.length && inventory[itemSlot] != null) {
 			Item item = inventory[itemSlot];
 			
+			item.onPassiveDeactivation();
+			
 			Controls.entities.add(new ItemEntity(player.posX, player.posY, item));
 			inventory[itemSlot] = null;
-			item.onPassiveDeactivation(); // we deactivate the passive of our item
 			item.currentInventory = null;
 		}
 	}
