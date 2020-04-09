@@ -137,8 +137,6 @@ public class PathFinder {
 					lastX = cNode[0];
 					lastY = cNode[1];
 					
-					System.out.println(lastX + ";" + lastY);
-					
 					break;
 				}
 			}

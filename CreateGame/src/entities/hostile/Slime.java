@@ -1,5 +1,7 @@
 package entities.hostile;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -13,14 +15,24 @@ public class Slime extends Hostile{
 
 	public Slime(float x, float y) {
 		super(x, y);
-		speed = 4;
+		speed = 2;
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		updateHitbox();
 		
-		if(PathFinder.isEyeContact(this, target)){runTo(target.posX, target.posY);}
+		if(PathFinder.isEyeContact(this, target)){
+			runTo(target.posX, target.posY);
+			agro += dt;
+			agro = Math.max(agro, 3000);
+		} else if(agro > 0) {
+			agro -= dt/4;
+			ArrayList<int[]> path = PathFinder.findPath((int) posX, (int) posY, (int) target.posX, (int) target.posY);
+			if(path.size() > 1) {
+				runTo(path.get(path.size()-2)[0]+0.5f, path.get(path.size()-2)[1]+0.5f);
+			}
+		}
 	}
 
 	@Override
