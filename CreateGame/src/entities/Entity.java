@@ -84,7 +84,7 @@ public abstract class Entity {
 		posY += dirY*aktuellerSpeed;
 		updateHitbox();
 		if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {
-			posY -= dirX*aktuellerSpeed;
+			posY -= dirY*aktuellerSpeed;
 		}
 		
 		updateHitbox();
