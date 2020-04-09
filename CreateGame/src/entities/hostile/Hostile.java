@@ -5,6 +5,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.Entity;
+import logic.Controls;
 
 public abstract class Hostile extends Entity{
 	
@@ -13,5 +14,6 @@ public abstract class Hostile extends Entity{
 	
 	public Hostile(float x, float y) {
 		super(x, y);
+		target = Controls.player;
 	}
 }

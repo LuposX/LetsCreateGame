@@ -6,6 +6,7 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.player.Inventory;
+import logic.CollisionControler;
 import logic.Controls;
 
 public abstract class Entity {
@@ -21,6 +22,7 @@ public abstract class Entity {
 		
 	public float speed; //Eigenschaft die die Geschwindigkeit es Entitys bestimmen soll [Standart: 1]
 	public float aktuellerSpeed;
+	
 	
 	/* Abstract Entity class
 	 * ----------
@@ -59,4 +61,34 @@ public abstract class Entity {
 	public void onCollision(Entity en) {
 		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
 	}
+	
+	public void runTo(float x, float y) {
+		/**Bewegt das Enity in Richtung der gegebenen Koordinaten
+		 * @param x Die X-Koordinate, y Die Y-Koordinate
+		 */
+		
+		//Berechnung der Richtung des Weges
+		float dX = (x-posX);
+		float dY = (y-posY);
+		float dXY = (float) Math.sqrt(dX*dX+dY*dY);
+				
+		float dirX = dX/dXY;
+		float dirY = dY/dXY;
+		
+		posX += dirX*aktuellerSpeed;
+		updateHitbox();
+		if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {
+			posX -= dirX*aktuellerSpeed;
+		}
+		
+		posY += dirY*aktuellerSpeed;
+		updateHitbox();
+		if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {
+			posY -= dirX*aktuellerSpeed;
+		}
+		
+		updateHitbox();
+	}
+	
+	public abstract void updateHitbox(); //Updated die Hitbox
 }

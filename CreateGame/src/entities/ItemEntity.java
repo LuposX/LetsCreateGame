@@ -24,7 +24,7 @@ public class ItemEntity extends Entity{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		//Hier soll das Item logisch ueberprueft werden
-		hitbox = new Rectangle(posX-15f/32, posY-15f/32, 30f/32, 30f/32);
+		updateHitbox();
 		
 		if(pickUpDelay > 0) {pickUpDelay -= dt;}
 	}
@@ -54,6 +54,11 @@ public class ItemEntity extends Entity{
 				pickUpDelay = 200;
 			}
 		}
+	}
+
+	@Override
+	public void updateHitbox() {
+		hitbox = new Rectangle(posX-15f/32, posY-15f/32, 30f/32, 30f/32);
 	}
 
 }

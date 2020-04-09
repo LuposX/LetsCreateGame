@@ -42,22 +42,22 @@ public class Player extends Entity{
 		
 		if(gc.getInput().isKeyDown(Input.KEY_W)) {
 			posY -= axisSpeed;
-			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			updateHitbox();
 			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY += axisSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_A)) {
 			posX -= axisSpeed;
-			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			updateHitbox();
 			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX += axisSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_S)) {
 			posY += axisSpeed;
-			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			updateHitbox();
 			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posY -= axisSpeed;}
 		}
 		if(gc.getInput().isKeyDown(Input.KEY_D)) {
 			posX += axisSpeed;
-			hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+			updateHitbox();
 			if(CollisionControler.touchesTileLayer(hitbox, Controls.LAYER_WALL)) {posX -= axisSpeed;}
 		}
 		
@@ -81,7 +81,7 @@ public class Player extends Entity{
 		
 		
 		//Updating hitbox
-		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+		
 		
 		// Update cooldown for every item in inventory
 		for(int i = 0; i < inventory.inventory.length; i++) {
@@ -97,5 +97,10 @@ public class Player extends Entity{
 		
 		shape = new Rectangle(drawX-10, drawY-10, 20, 20);
 		g.fill(shape);
+	}
+
+	@Override
+	public void updateHitbox() {
+		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
 	}
 }

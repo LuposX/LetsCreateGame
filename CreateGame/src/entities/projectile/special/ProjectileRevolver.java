@@ -33,7 +33,7 @@ public class ProjectileRevolver extends Projectile {
 		}
 		
 		//Update hitbox
-		hitbox = new Rectangle(posX-2f/32, posY-2f/32, 4f/32, 4f/32);
+		updateHitbox();
 	}
 
 	@Override
@@ -49,6 +49,11 @@ public class ProjectileRevolver extends Projectile {
 	public void onCollision(Entity en) {
 		if(en != owner) {
 		}
+	}
+
+	@Override
+	public void updateHitbox() {
+		hitbox = new Rectangle(posX-2f/32, posY-2f/32, 4f/32, 4f/32);
 	}
 
 }
