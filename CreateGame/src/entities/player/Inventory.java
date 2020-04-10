@@ -290,12 +290,14 @@ public class Inventory {
 		if(itemSlot != -1 && itemSlot < inventory.length && inventory[itemSlot] != null) {
 			Item item = inventory[itemSlot];
 			
-			if(item instanceof Shoe && ((Shoe) item).isCarried == true) {
-				item.onPassiveDeactivation();
-			}
+			
 			
 			Controls.entities.add(new ItemEntity(player.posX, player.posY, item));
 			inventory[itemSlot] = null;
+			
+			//Last call of passive
+			item.onPassive();
+			
 			item.currentInventory = null;
 		}
 	}
