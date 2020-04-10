@@ -18,7 +18,7 @@ public class Slime extends Hostile{
 	public Slime(float x, float y) {
 		super(x, y);
 		speed = 2;
-		health = 5;
+		health = 3;
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class Slime extends Hostile{
 	@Override
 	public void onCollision(Entity en, int dt) {
 		if (en instanceof Projectile) {
-			health = damage(health);
+			damage(1);
 		}
 	}
 	

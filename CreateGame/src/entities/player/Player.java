@@ -121,7 +121,7 @@ public class Player extends Entity{
 	public void onCollision(Entity en, int dt) {
 		if (en instanceof Hostile) {
 			if (cooldownOnCollisionAktuell >= cooldownOnCollision) {
-				health = damage(health);
+				damage(1);
 				cooldownOnCollisionAktuell = 0;
 			} else {
 				cooldownOnCollisionAktuell += dt;

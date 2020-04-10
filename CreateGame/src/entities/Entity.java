@@ -62,12 +62,12 @@ public abstract class Entity {
 		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
 	}
 	
-	public float damage(float health) {
+	public void damage(float damage) {
 		/*	gets executed when the player gets damage
-		 *  @param health die health von dem entity das veringert werden soll
+		 *  @param damage The damage the object takes
 		 *  @return void
 		 */
-		return health - 1f;
+		health -= damage;
 	}
 	
 	public void runTo(float x, float y) {
