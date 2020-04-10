@@ -27,6 +27,8 @@ public class Game extends StateBasedGame {
 	public static final int START_LEVEL = 3; // we give out start Ingame the id 1
 	public static final int SETTINGS_MENU = 4;
 	
+	public static boolean gameIsOver = false; // Set it to true when game is over
+	
 	public Game(String gameName) {
 		super(gameName);
 		// We add out state to the object Game

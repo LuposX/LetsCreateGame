@@ -2,10 +2,13 @@ package logic;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.Color;
+import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
@@ -16,6 +19,8 @@ import entities.hostile.Slime;
 import entities.player.Player;
 import items.weapons.ItemRevolver;
 import items.weapons.ItemSnowball;
+import main.Game;
+import utils.GameIsOver;
 import items.special.ItemTest;
 
 public class Controls {
@@ -29,6 +34,9 @@ public class Controls {
 	
 	public static int LAYER_GROUND;
 	public static int LAYER_WALL;
+	
+	static java.awt.Font awtFont = new java.awt.Font("Verdana", java.awt.Font.BOLD, 28);
+	static Font gameIsOverFont = new TrueTypeFont(awtFont, false);
 	
 	public static void init(GameContainer gc, StateBasedGame sbg) {
 		//belegen der "Halb-Konstanten"
@@ -53,8 +61,7 @@ public class Controls {
 		entities.add(new ItemEntity(19, 6, new ItemRevolver()));
 	}
 	
-	public static void render(GameContainer gc, Graphics g) {
-		
+	public static void render(GameContainer gc, Graphics g) {		
 		//Aufrufen aller Entities
 		for(Entity en : entities) {
 			en.prepareDraw();
@@ -64,9 +71,19 @@ public class Controls {
 		//Zeichnen von GUIs
 		Camera.antiTranslate(gc, g);
 		player.inventory.render(gc, g);
+		player.render_health(gc, g); // used to render the halth from the player
+		
+		// Does graphics when game is over
+		if(Game.gameIsOver) {
+			GameIsOver.renderGameOver(gc, g);
+		}
 	}
 	
 	public static void update(GameContainer gc, StateBasedGame sbg, int dt) {
+		if(Game.gameIsOver) {
+			GameIsOver.updateGameOver(gc, sbg, dt);
+		}
+		
 		//Aufrufen aller Entities
 		for(int i = 0; i < entities.size(); i++) {
 			Entity en = entities.get(i);

@@ -62,6 +62,14 @@ public abstract class Entity {
 		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
 	}
 	
+	public float damage(float health) {
+		/*	gets executed when the player gets damage
+		 *  @param health die health von dem entity das veringert werden soll
+		 *  @return void
+		 */
+		return health - 1f;
+	}
+	
 	public void runTo(float x, float y) {
 		/**Bewegt das Enity in Richtung der gegebenen Koordinaten
 		 * @param x Die X-Koordinate, y Die Y-Koordinate
