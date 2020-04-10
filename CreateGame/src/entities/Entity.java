@@ -58,8 +58,16 @@ public abstract class Entity {
 	//<nicht implementiert>
 	//Input: Aktiver Kollisionsteilnehmer
 	//Wird aufgerufen wenn (z.B. ein Projektil) dieses Entity trifft.
-	public void onCollision(Entity en) {
+	public void onCollision(Entity en, int dt) {
 		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
+	}
+	
+	public float damage(float health) {
+		/*	gets executed when the player gets damage
+		 *  @param health die health von dem entity das veringert werden soll
+		 *  @return void
+		 */
+		return health - 1f;
 	}
 	
 	public void runTo(float x, float y) {

@@ -4,24 +4,50 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 import entities.Entity;
+import entities.hostile.Hostile;
 import entities.projectile.special.ProjectileSnowball;
 import items.special.ItemTest;
 import javafx.geometry.Rectangle2D;
 import logic.CollisionControler;
 import logic.Controls;
+import main.Game;
 import net.java.games.input.Component.Identifier.Key;
+
+import org.newdawn.slick.Font;
 
 public class Player extends Entity{	
 	public Inventory inventory;
+	public int cooldownOnCollision = 100;
+	public int cooldownOnCollisionAktuell = cooldownOnCollision + 1;
 	
 	public Player(float x, float y) {
 		super(x, y);
 		speed = 5;
+		health = 5f;
 		inventory = new Inventory(this); // Create a Inventory for the player and give it the player instanz
+	}
+	
+	public void render_health(GameContainer gc, Graphics g) {
+		/* Draw the health on the display for the player
+		 * 
+		 */	
+		g.setColor(Color.red);
+		g.drawString("Player Health: ", 10, 40);
+		
+		for(int i = 0; i < health; i++) {
+			float x = (10+(i % 5)*30);
+			float y = (60+(int)(i / 6)*70);
+			Rectangle healthBG = new Rectangle(x, y, 15, 15);
+			
+			g.fill(healthBG);
+		}
 	}
 
 	@Override
@@ -35,6 +61,10 @@ public class Player extends Entity{
 		if(gc.getInput().isKeyDown(Input.KEY_A)) {pressedDirections++;}
 		if(gc.getInput().isKeyDown(Input.KEY_S)) {pressedDirections++;}
 		if(gc.getInput().isKeyDown(Input.KEY_D)) {pressedDirections++;}
+		
+		if (health <= 0) {
+			Game.gameIsOver = true;
+		}
 		
 		if(pressedDirections > 1) {
 			axisSpeed /= Math.sqrt(2);
@@ -78,15 +108,23 @@ public class Player extends Entity{
 				}
 			}
 		}
-		
-		
-		//Updating hitbox
-		
-		
+			
 		// Update cooldown for every item in inventory
 		for(int i = 0; i < inventory.inventory.length; i++) {
 			if (inventory.inventory[i] != null) {
 				 inventory.inventory[i].cooldownAktuell -= dt;
+			}
+		}
+	}
+	
+	@Override
+	public void onCollision(Entity en, int dt) {
+		if (en instanceof Hostile) {
+			if (cooldownOnCollisionAktuell >= cooldownOnCollision) {
+				health = damage(health);
+				cooldownOnCollisionAktuell = 0;
+			} else {
+				cooldownOnCollisionAktuell += dt;
 			}
 		}
 	}

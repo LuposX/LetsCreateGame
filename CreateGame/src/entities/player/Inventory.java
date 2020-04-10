@@ -80,7 +80,6 @@ public class Inventory {
 	
 	public void message_Inventory_full(GameContainer gc, Graphics g) {
 		/* Gets displayed when the Inventory is full
-		 * 
 		 * @param g used to draw stuff, gets it from render method
 		 * @return void
 		 */

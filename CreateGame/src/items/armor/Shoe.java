@@ -1,4 +1,6 @@
-package items;
+package items.armor;
+
+import items.Item;
 
 public abstract class Shoe extends Item{
 

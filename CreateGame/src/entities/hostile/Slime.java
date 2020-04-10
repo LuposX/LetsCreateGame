@@ -8,6 +8,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import entities.Entity;
+import entities.projectile.Projectile;
 import logic.Controls;
 import logic.PathFinder;
 
@@ -16,11 +18,17 @@ public class Slime extends Hostile{
 	public Slime(float x, float y) {
 		super(x, y);
 		speed = 2;
+		health = 5;
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int dt) {
 		updateHitbox();
+		
+		// it dies when it doesn't have any health left
+		if (health <= 0) {
+			wantToDie = true;
+		}
 		
 		if(PathFinder.isEyeContact(this, target)){
 			runTo(target.posX, target.posY);
@@ -34,7 +42,14 @@ public class Slime extends Hostile{
 			}
 		}
 	}
-
+	
+	@Override
+	public void onCollision(Entity en, int dt) {
+		if (en instanceof Projectile) {
+			health = damage(health);
+		}
+	}
+	
 	@Override
 	public void render(GameContainer gc, Graphics g) {
 		shape = new Rectangle(drawX-10, drawY-10, 20, 20);

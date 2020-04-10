@@ -7,7 +7,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.player.Inventory;
 import items.Item;
-import items.Shoe;
+import items.armor.Shoe;
 
 public class ItemTest extends Shoe{
 	/* Test item
