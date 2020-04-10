@@ -12,6 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.ItemEntity;
 import items.Item;
+import items.armor.Shoe;
 import logic.Controls;
 
 public class Inventory {
@@ -289,7 +290,9 @@ public class Inventory {
 		if(itemSlot != -1 && itemSlot < inventory.length && inventory[itemSlot] != null) {
 			Item item = inventory[itemSlot];
 			
-			item.onPassiveDeactivation();
+			if(item instanceof Shoe && ((Shoe) item).isCarried == true) {
+				item.onPassiveDeactivation();
+			}
 			
 			Controls.entities.add(new ItemEntity(player.posX, player.posY, item));
 			inventory[itemSlot] = null;
