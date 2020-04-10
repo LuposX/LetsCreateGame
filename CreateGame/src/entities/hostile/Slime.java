@@ -33,6 +33,12 @@ public class Slime extends Hostile{
 				runTo(path.get(path.size()-2)[0]+0.5f, path.get(path.size()-2)[1]+0.5f);
 			}
 		}
+		else if(Math.random() < 0.01) {
+			wanderingPosX = posX + (float) Math.random()*6-3;
+			wanderingPosY = posY + (float) Math.random()*6-3;
+		} else {
+			runTo(wanderingPosX, wanderingPosY);
+		}
 	}
 
 	@Override
