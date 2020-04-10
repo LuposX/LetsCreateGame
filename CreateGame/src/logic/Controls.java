@@ -94,7 +94,7 @@ public class Controls {
 		}
 		
 		//Aufrufen des CollisionControlers
-		CollisionControler.detectEntityCollisions(entities);
+		CollisionControler.detectEntityCollisions(entities, dt);
 		
 		//Aufrufen der Kamera
 		Camera.followEntity(player, gc);

@@ -24,6 +24,8 @@ import org.newdawn.slick.Font;
 
 public class Player extends Entity{	
 	public Inventory inventory;
+	public int cooldownOnCollision = 100;
+	public int cooldownOnCollisionAktuell = cooldownOnCollision + 1;
 	
 	public Player(float x, float y) {
 		super(x, y);
@@ -116,9 +118,14 @@ public class Player extends Entity{
 	}
 	
 	@Override
-	public void onCollision(Entity en) {
+	public void onCollision(Entity en, int dt) {
 		if (en instanceof Hostile) {
-			health = damage(health);
+			if (cooldownOnCollisionAktuell >= cooldownOnCollision) {
+				health = damage(health);
+				cooldownOnCollisionAktuell = 0;
+			} else {
+				cooldownOnCollisionAktuell += dt;
+			}
 		}
 	}
 

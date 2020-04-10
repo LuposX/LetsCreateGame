@@ -12,18 +12,18 @@ public class CollisionControler {
 	 * @param entities Die Liste aller Objekte extending Entity
 	 * @return void
 	 */
-	public static void detectEntityCollisions(ArrayList<Entity> entities) {
-		//Fuer alle Entities (außer das letzte)
+	public static void detectEntityCollisions(ArrayList<Entity> entities, int dt) {
+		//Fuer alle Entities (auï¿½er das letzte)
 		for(int i = 0; i < entities.size() - 1; i++) {
 			Entity e1 = entities.get(i);
 			
-			//Fuer alle Entities mit einem Index groeßer als i
+			//Fuer alle Entities mit einem Index groeï¿½er als i
 			for(int k = i + 1; k < entities.size(); k++) {
 				Entity e2 = entities.get(k);
 				if(e1.hitbox != null && e2.hitbox != null) {
 					if(e1.hitbox.intersects(e2.hitbox)) {
-						e1.onCollision(e2);
-						e2.onCollision(e1);
+						e1.onCollision(e2, dt);
+						e2.onCollision(e1, dt);
 					}
 				}
 			}

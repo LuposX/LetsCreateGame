@@ -58,6 +58,11 @@ public abstract class Entity {
 	//<nicht implementiert>
 	//Input: Aktiver Kollisionsteilnehmer
 	//Wird aufgerufen wenn (z.B. ein Projektil) dieses Entity trifft.
+	public void onCollision(Entity en, int dt) {
+		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
+	}
+	
+	//überladen if its need dt
 	public void onCollision(Entity en) {
 		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
 	}
