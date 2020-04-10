@@ -38,7 +38,7 @@ public class ItemEntity extends Entity{
 	}
 	
 	@Override
-	public void onCollision(Entity en) {
+	public void onCollision(Entity en, int dt) {
 		if(en instanceof Player) {
 			if (pickUpDelay <= 0) {
 				Player p = (Player) en;

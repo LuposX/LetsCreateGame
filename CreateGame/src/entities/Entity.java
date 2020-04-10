@@ -62,11 +62,6 @@ public abstract class Entity {
 		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
 	}
 	
-	//überladen if its need dt
-	public void onCollision(Entity en) {
-		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
-	}
-	
 	public float damage(float health) {
 		/*	gets executed when the player gets damage
 		 *  @param health die health von dem entity das veringert werden soll

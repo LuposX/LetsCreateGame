@@ -46,7 +46,7 @@ public class ProjectileSnowball extends Projectile {
 	
 	//Collisionstest mit Schneeball
 	@Override
-	public void onCollision(Entity en) {
+	public void onCollision(Entity en, int dt) {
 		if(en != owner) {
 		}
 	}
