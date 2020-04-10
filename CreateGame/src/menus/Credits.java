@@ -10,14 +10,21 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Credits extends BasicGameState{
 	
-	public Credits(int credits) {
-	}
+	/* Credit Menu
+	 * ----------
+	 *  This State is the Credits Menu. You can see it when you press on "Credits" in the Main Menu.
+	 *  It shows the Credits of the game.
+	 *  
+	 *  //TODO: Make it prettier, do some stuff in the BG e.g. like Minecraft Credits.
+	 */
+	
+	public Credits(int credits) {}
 
-	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
-	}
+	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+		// Here we render the different Credits String
+		//TODO: There must be a better way than using absolute Cordinates. I think it also suck for "Resizability"
 		g.drawString("Programmer: /", 300, 100);
 		g.drawString("Level Designer: /", 300, 150);
 		g.drawString("Director: /", 300, 200);
@@ -28,13 +35,15 @@ public class Credits extends BasicGameState{
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int t) throws SlickException {
+		// Getting the current Mouse position
 		int posX = Mouse.getX();
 		int posY = Mouse.getY();
 		
-		//Back button
+		// Back button
+		// Check if the mouse presses the button
 		if((posX > 25 && posX < 70) && (posY > 30 && posY < 55)){
-			//System.out.println("drauf");
 			if(Mouse.isButtonDown(0)){
+				// Going back to the Main Menu
 				sbg.enterState(0);
 			}
 		}
