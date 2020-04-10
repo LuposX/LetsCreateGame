@@ -7,9 +7,9 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.player.Inventory;
 import items.Item;
-import items.armor.Shoe;
+import items.armor.Armor;
 
-public class ItemTest extends Shoe{
+public class ItemTest extends Armor{
 	/* Test item
 	 * ------------
 	 * For Demonstratring how to add a item. This one adds 

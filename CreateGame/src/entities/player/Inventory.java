@@ -12,7 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.ItemEntity;
 import items.Item;
-import items.armor.Shoe;
+import items.armor.Armor;
 import logic.Controls;
 
 public class Inventory {
