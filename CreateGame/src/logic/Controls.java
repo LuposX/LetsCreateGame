@@ -35,9 +35,6 @@ public class Controls {
 	public static int LAYER_GROUND;
 	public static int LAYER_WALL;
 	
-	static java.awt.Font awtFont = new java.awt.Font("Verdana", java.awt.Font.BOLD, 28);
-	static Font gameIsOverFont = new TrueTypeFont(awtFont, false);
-	
 	public static void init(GameContainer gc, StateBasedGame sbg) {
 		//belegen der "Halb-Konstanten"
 		LAYER_GROUND = map.getLayerIndex("ground");
