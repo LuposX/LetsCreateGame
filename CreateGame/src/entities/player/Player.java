@@ -27,10 +27,13 @@ public class Player extends Entity{
 	public int cooldownOnCollision = 100;
 	public int cooldownOnCollisionAktuell = cooldownOnCollision + 1;
 	
+	float maxHealth; //maximale Lebensanzahl
+	
 	public Player(float x, float y) {
 		super(x, y);
 		speed = 5;
-		health = 5f;
+		maxHealth = 5f;
+		health = maxHealth;
 		inventory = new Inventory(this); // Create a Inventory for the player and give it the player instanz
 	}
 	
@@ -41,10 +44,16 @@ public class Player extends Entity{
 		g.setColor(Color.red);
 		g.drawString("Player Health: ", 10, 40);
 		
-		for(int i = 0; i < health; i++) {
+		for(int i = 0; i < maxHealth; i++) {
 			float x = (10+(i % 5)*30);
 			float y = (60+(int)(i / 6)*70);
 			Rectangle healthBG = new Rectangle(x, y, 15, 15);
+			
+			if(i < health) {
+				g.setColor(Color.red);
+			} else {
+				g.setColor(Color.gray);
+			}
 			
 			g.fill(healthBG);
 		}
