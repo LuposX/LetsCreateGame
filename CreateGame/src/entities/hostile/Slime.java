@@ -64,12 +64,12 @@ public class Slime extends Hostile{
 		//g.setColor(Color.green);
 		//g.fill(shape);
 		
-		g.drawImage(image, drawX - 10, drawY - 10); 
+		g.drawImage(image, drawX - 16, drawY - 24); 
 	}
 
 	@Override
 	public void updateHitbox() {
-		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+		hitbox = new Rectangle(posX-16f/32, posY-24f/32, 32f/32, 48f/32);
 	}
 	
 }
