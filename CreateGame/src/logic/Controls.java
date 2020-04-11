@@ -17,11 +17,11 @@ import entities.Entity;
 import entities.ItemEntity;
 import entities.hostile.Slime;
 import entities.player.Player;
+import items.passive.SpeedItem;
 import items.weapons.ItemRevolver;
 import items.weapons.ItemSnowball;
 import main.Game;
 import utils.GameIsOver;
-import items.special.ItemTest;
 
 public class Controls {
 	

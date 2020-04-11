@@ -20,7 +20,7 @@ public class Slime extends Hostile{
 	public Slime(float x, float y) {
 		super(x, y);
 		speed = 2;
-		health = 5;
+		health = 3;
 		
 		try {
 			image = new Image("res/textures/enemy1/chort_run_anim_f0_upscaled.png");
@@ -41,20 +41,26 @@ public class Slime extends Hostile{
 		if(PathFinder.isEyeContact(this, target)){
 			runTo(target.posX, target.posY);
 			agro += dt;
-			agro = Math.max(agro, 3000);
+			agro = Math.min(agro, 3000);
 		} else if(agro > 0) {
-			agro -= dt/4;
+			agro -= dt/8;
 			ArrayList<int[]> path = PathFinder.findPath((int) posX, (int) posY, (int) target.posX, (int) target.posY);
 			if(path.size() > 1) {
 				runTo(path.get(path.size()-2)[0]+0.5f, path.get(path.size()-2)[1]+0.5f);
 			}
+		}
+		else if(Math.random() < 0.01) {
+			wanderingPosX = posX + (float) Math.random()*6-3;
+			wanderingPosY = posY + (float) Math.random()*6-3;
+		} else {
+			runTo(wanderingPosX, wanderingPosY);
 		}
 	}
 	
 	@Override
 	public void onCollision(Entity en, int dt) {
 		if (en instanceof Projectile) {
-			health = damage(health);
+			damage(1);
 		}
 	}
 	
