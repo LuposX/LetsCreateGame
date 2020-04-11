@@ -44,16 +44,16 @@ public class Controls {
 		
 		//Testweises hinzufuegen von Entities
 		entities.add(new Slime(14, 3));
-		entities.add(new ItemEntity(3, 3, new ItemTest()));
-		entities.add(new ItemEntity(5, 3, new ItemTest()));
-		entities.add(new ItemEntity(7, 3, new ItemTest()));
-		entities.add(new ItemEntity(9, 3, new ItemTest()));
-		entities.add(new ItemEntity(11, 3, new ItemTest()));
-		entities.add(new ItemEntity(13, 3, new ItemTest()));
-		entities.add(new ItemEntity(15, 3, new ItemTest()));
-		entities.add(new ItemEntity(17, 3, new ItemTest()));
-		entities.add(new ItemEntity(19, 3, new ItemTest()));
-		entities.add(new ItemEntity(21, 3, new ItemTest()));
+		entities.add(new ItemEntity(3, 3, new SpeedItem()));
+		entities.add(new ItemEntity(5, 3, new SpeedItem()));
+		entities.add(new ItemEntity(7, 3, new SpeedItem()));
+		entities.add(new ItemEntity(9, 3, new SpeedItem()));
+		entities.add(new ItemEntity(11, 3, new SpeedItem()));
+		entities.add(new ItemEntity(13, 3, new SpeedItem()));
+		entities.add(new ItemEntity(15, 3, new SpeedItem()));
+		entities.add(new ItemEntity(17, 3, new SpeedItem()));
+		entities.add(new ItemEntity(19, 3, new SpeedItem()));
+		entities.add(new ItemEntity(21, 3, new SpeedItem()));
 		entities.add(new ItemEntity(28, 5, new ItemSnowball()));
 		entities.add(new ItemEntity(19, 8, new ItemRevolver()));
 	}
