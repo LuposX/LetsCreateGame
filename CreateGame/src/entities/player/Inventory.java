@@ -12,7 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.ItemEntity;
 import items.Item;
-import items.armor.Armor;
+import items.passive.PassiveItem;
 import logic.Controls;
 
 public class Inventory {
@@ -152,8 +152,9 @@ public class Inventory {
 			g.fillRoundRect(10*drawUnit, 10*drawUnit, 500*drawUnit, 460*drawUnit, (int) (50*drawUnit));
 			g.setColor(Color.orange);
 			g.drawString("Aktive Items:", 30*drawUnit, 25*drawUnit);
-			g.drawString("Schuhe / Hose / Brustplatte / Helm:", 30*drawUnit, 125*drawUnit);
-			g.drawString("Sonstige Items:", 30*drawUnit, 225*drawUnit);
+			g.drawString("Passives Item:", 240*drawUnit, 25*drawUnit);
+			g.drawString("Rucksack:", 30*drawUnit, 125*drawUnit);
+			
 			
 			//Draw Slots
 			g.setColor(Color.black);
@@ -161,15 +162,9 @@ public class Inventory {
 			
 			g.drawRect(30*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
 			g.drawRect(100*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
+			g.drawRect(240*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
 			
-			for(int i = 0; i < InventarSlots-6; i++) {
-				float x = (30+(i % 6)*70)*drawUnit;
-				float y = (250+(int)(i / 6)*70)*drawUnit;
-				
-				g.drawRect(x, y, 50*drawUnit, 50*drawUnit);
-			}
-			
-			for(int i = 0; i < 4; i++) {
+			for(int i = 0; i < InventarSlots-3; i++) {
 				float x = (30+(i % 6)*70)*drawUnit;
 				float y = (150+(int)(i / 6)*70)*drawUnit;
 				
@@ -187,16 +182,10 @@ public class Inventory {
 					} else if(i == 1) {
 						item.drawOnScreen(100*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
 					} else if(i == 2) {
-						item.drawOnScreen(30*drawUnit, 150*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
-					} else if(i == 3) {
-						item.drawOnScreen(100*drawUnit, 150*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
-					} else if(i == 4) {
-						item.drawOnScreen(170*drawUnit, 150*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
-					} else if(i == 5) {
-						item.drawOnScreen(240*drawUnit, 150*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
+						item.drawOnScreen(240*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit, gc, g);
 					} else {
-						float x = (30+((i-6) % 6)*70)*drawUnit;
-						float y = (250+(int)((i-6) / 6)*70)*drawUnit;
+						float x = (30+((i-3) % 6)*70)*drawUnit;
+						float y = (150+(int)((i-3) / 6)*70)*drawUnit;
 						item.drawOnScreen(x, y, 50*drawUnit, 50*drawUnit, gc, g);
 					}
 				}
@@ -257,25 +246,16 @@ public class Inventory {
 		if(x > 100*drawUnit && y > 50*drawUnit && x < 150*drawUnit && y < 100*drawUnit) {
 			return 1;
 		}
-		if(x > 30*drawUnit && y > 150*drawUnit && x < 80*drawUnit && y < 200*drawUnit) {
+		if(x > 240*drawUnit && y > 50*drawUnit && x < 290*drawUnit && y < 100*drawUnit) {
 			return 2;
 		}
-		if(x > 100*drawUnit && y > 150*drawUnit && x < 150*drawUnit && y < 200*drawUnit) {
-			return 3;
-		}
-		if(x > 170*drawUnit && y > 150*drawUnit && x < 220*drawUnit && y < 200*drawUnit) {
-			return 4;
-		}
-		if(x > 240*drawUnit && y > 150*drawUnit && x < 290*drawUnit && y < 200*drawUnit) {
-			return 5;
-		}
 		
-		for(int i = 0; i < InventarSlots-6; i++) {
+		for(int i = 0; i < InventarSlots-3; i++) {
 			float mX = (30+(i % 6)*70)*drawUnit;
-			float mY = (250+(int)(i / 6)*70)*drawUnit;
+			float mY = (150+(int)(i / 6)*70)*drawUnit;
 			
 			if(x > mX && y > mY && y < mY + 50*drawUnit && x < mX + 50*drawUnit) {
-				return i + 6;
+				return i + 3;
 			}
 		}
 		
