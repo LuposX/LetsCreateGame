@@ -28,7 +28,7 @@ public class Controls {
 	public static final float tileSize = 32;
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
-	public static Player player = new Player(15, 10);
+	public static Player player = new Player(17, 10);
 		
 	public static TiledMap map;
 	
@@ -54,8 +54,8 @@ public class Controls {
 		entities.add(new ItemEntity(17, 3, new ItemTest()));
 		entities.add(new ItemEntity(19, 3, new ItemTest()));
 		entities.add(new ItemEntity(21, 3, new ItemTest()));
-		entities.add(new ItemEntity(17, 6, new ItemSnowball()));
-		entities.add(new ItemEntity(19, 6, new ItemRevolver()));
+		entities.add(new ItemEntity(28, 5, new ItemSnowball()));
+		entities.add(new ItemEntity(19, 8, new ItemRevolver()));
 	}
 	
 	public static void render(GameContainer gc, Graphics g) {		

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -19,6 +21,12 @@ public class Slime extends Hostile{
 		super(x, y);
 		speed = 2;
 		health = 5;
+		
+		try {
+			image = new Image("res/textures/enemy1/chort_run_anim_f0_upscaled.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -52,9 +60,11 @@ public class Slime extends Hostile{
 	
 	@Override
 	public void render(GameContainer gc, Graphics g) {
-		shape = new Rectangle(drawX-10, drawY-10, 20, 20);
-		g.setColor(Color.green);
-		g.fill(shape);
+		//shape = new Rectangle(drawX-10, drawY-10, 20, 20);
+		//g.setColor(Color.green);
+		//g.fill(shape);
+		
+		g.drawImage(image, drawX - 10, drawY - 10); 
 	}
 
 	@Override

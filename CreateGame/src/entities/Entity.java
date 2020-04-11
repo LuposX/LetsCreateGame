@@ -2,6 +2,7 @@ package entities;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -23,6 +24,7 @@ public abstract class Entity {
 	public float speed; //Eigenschaft die die Geschwindigkeit es Entitys bestimmen soll [Standart: 1]
 	public float aktuellerSpeed;
 	
+	public Image image; //Image of the Item
 	
 	/* Abstract Entity class
 	 * ----------

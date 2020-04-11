@@ -3,7 +3,9 @@ package entities.player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
@@ -32,6 +34,12 @@ public class Player extends Entity{
 		speed = 5;
 		health = 5f;
 		inventory = new Inventory(this); // Create a Inventory for the player and give it the player instanz
+		
+		try {
+			image = new Image("res/textures/player/knight_f_hit_anim_f0_upscale.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void render_health(GameContainer gc, Graphics g) {
@@ -133,8 +141,7 @@ public class Player extends Entity{
 	public void render(GameContainer gc, Graphics g) {
 		g.setColor(Color.red);
 		
-		shape = new Rectangle(drawX-10, drawY-10, 20, 20);
-		g.fill(shape);
+		g.drawImage(image, drawX - 10, drawY - 10); 
 	}
 
 	@Override
