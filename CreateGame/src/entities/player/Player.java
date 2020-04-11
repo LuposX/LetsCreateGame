@@ -13,7 +13,7 @@ import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import entities.Entity;
 import entities.hostile.Hostile;
 import entities.projectile.special.ProjectileSnowball;
-import items.special.ItemTest;
+import items.passive.SpeedItem;
 import javafx.geometry.Rectangle2D;
 import logic.CollisionControler;
 import logic.Controls;

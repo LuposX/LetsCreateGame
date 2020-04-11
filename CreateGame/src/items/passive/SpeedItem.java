@@ -1,4 +1,4 @@
-package items.special;
+package items.passive;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -7,9 +7,8 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.player.Inventory;
 import items.Item;
-import items.armor.Armor;
 
-public class ItemTest extends Armor{
+public class SpeedItem extends PassiveItem{
 	/* Test item
 	 * ------------
 	 * For Demonstratring how to add a item. This one adds 
@@ -19,11 +18,11 @@ public class ItemTest extends Armor{
 	
 	public float speed_multiplier = 1.5f;
 	public static int cooldown = 300;
-	public static String itemName = "Testschuhe";
-	public static String itemDescription = "This is a item for testing\npurposes. \nPassive:\n  +50% Speed";
+	public static String itemName = "Geschwindigkeitsamulett";
+	public static String itemDescription = "Macht dich schneller. \nPassive:\n  +50% Speed";
 	
 	
-	public ItemTest() {
+	public SpeedItem() {
 		super(itemName, itemDescription);
 	}
 
