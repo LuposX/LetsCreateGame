@@ -141,11 +141,11 @@ public class Player extends Entity{
 	public void render(GameContainer gc, Graphics g) {
 		g.setColor(Color.red);
 		
-		g.drawImage(image, drawX - 10, drawY - 10); 
+		g.drawImage(image, drawX - 16, drawY - 28); 
 	}
 
 	@Override
 	public void updateHitbox() {
-		hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
+		hitbox = new Rectangle(posX-16f/32, posY-28f/32, 32f/32, 56f/32);
 	}
 }
