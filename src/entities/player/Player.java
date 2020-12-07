@@ -9,8 +9,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
-
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+import org.newdawn.slick.Font;
 
 import entities.Entity;
 import entities.hostile.Hostile;
@@ -19,9 +18,11 @@ import items.special.ItemTest;
 import logic.CollisionControler;
 import logic.Controls;
 import main.Game;
+import menus.Settings;
+
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import net.java.games.input.Component.Identifier.Key;
 
-import org.newdawn.slick.Font;
 
 public class Player extends Entity{	
 	public Inventory inventory;
@@ -39,6 +40,14 @@ public class Player extends Entity{
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void render_player_hibox(GameContainer gc, Graphics g) {
+		/* Renders the Players Hitbox for debugging purpose
+		 * 
+		 */	
+		g.setColor(Color.pink);
+		g.draw(hitbox);
 	}
 	
 	public void render_health(GameContainer gc, Graphics g) {
@@ -69,6 +78,7 @@ public class Player extends Entity{
 		if(gc.getInput().isKeyDown(Input.KEY_S)) {pressedDirections++;}
 		if(gc.getInput().isKeyDown(Input.KEY_D)) {pressedDirections++;}
 		
+		// Game over Event
 		if (health <= 0) {
 			Game.gameIsOver = true;
 		}
@@ -77,6 +87,7 @@ public class Player extends Entity{
 			axisSpeed /= Math.sqrt(2);
 		}
 		
+		// Player controlls
 		if(gc.getInput().isKeyDown(Input.KEY_W)) {
 			posY -= axisSpeed;
 			updateHitbox();
@@ -137,9 +148,8 @@ public class Player extends Entity{
 	}
 
 	@Override
-	public void render(GameContainer gc, Graphics g) {
-		g.setColor(Color.red);
-		
+	public void render(GameContainer gc, Graphics g) {	
+		g.setColor(Color.red);	
 		g.drawImage(image, drawX - 16, drawY - 28); 
 	}
 

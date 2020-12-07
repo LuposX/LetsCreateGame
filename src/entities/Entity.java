@@ -1,5 +1,6 @@
 package entities;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -43,6 +44,14 @@ public abstract class Entity {
 	
 	public abstract void update(GameContainer gc, StateBasedGame sbg, int dt); //Dient zum Updaten von Physik und Logik
 	public abstract void render(GameContainer gc, Graphics g); //Dient zum Zeichnen der Graphik
+	
+	public void render_entity_hibox(GameContainer gc, Graphics g) {
+		/* Renders the Entity Hitbox for debugging purpose
+		 * 
+		 */	
+		g.setColor(Color.pink);
+		g.draw(hitbox);
+	}
 	
 	// maybe rename this method 
 	// used to make the game frame independent

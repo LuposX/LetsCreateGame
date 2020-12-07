@@ -68,7 +68,7 @@ public class Controls {
 		//Zeichnen von GUIs
 		Camera.antiTranslate(gc, g);
 		player.inventory.render(gc, g);
-		player.render_health(gc, g); // used to render the halth from the player
+		player.render_health(gc, g); // used to render the health from the player
 		
 		// Does graphics when game is over
 		if(Game.gameIsOver) {
