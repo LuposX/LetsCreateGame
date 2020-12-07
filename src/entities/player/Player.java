@@ -29,8 +29,7 @@ public class Player extends Entity{
 	public int cooldownOnCollision = 100;
 	public int cooldownOnCollisionAktuell = cooldownOnCollision + 1;
 	
-	public int hitbox_sizeX;
-	public int hitbox_sizeY;
+	public Image image_health;
 	
 	public Player(float x, float y) {
 		super(x, y);
@@ -40,6 +39,12 @@ public class Player extends Entity{
 		
 		try {
 			image = new Image("res/textures/player/knight_f_hit_anim_f0_upscale.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			image_health = new Image("res/textures/player/ui_heart_full.png");
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
@@ -57,7 +62,9 @@ public class Player extends Entity{
 			float y = (60+(int)(i / 6)*70);
 			Rectangle healthBG = new Rectangle(x, y, 15, 15);
 			
-			g.fill(healthBG);
+			//g.fill(healthBG);
+			//g.drawImage(image_health, x, y);
+			image_health.draw(x, y, 1.5f);
 		}
 	}
 
