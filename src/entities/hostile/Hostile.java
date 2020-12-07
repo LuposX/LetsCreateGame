@@ -11,9 +11,7 @@ import logic.Controls;
 public abstract class Hostile extends Entity{
 	
 	public int agro; //Bestimmt, wie sehr der Gegner den Spieler wahrgenommen hat <nicht implementiert>
-	public Entity target; //Zeigt auf wen der Gegner aggresiv ist <nicht implementiert>
-	
-	public Image image; //Image of the Item
+	public Entity target; //Zeigt auf wen der Gegner aggresiv ist <nicht implementiert>	
 	
 	public Hostile(float x, float y) {
 		super(x, y);

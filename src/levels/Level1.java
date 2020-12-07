@@ -11,7 +11,6 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import logic.Camera;
 import logic.Controls;
-import logic.Misc;
 
 public class Level1 extends BasicGameState{
 	
@@ -27,8 +26,7 @@ public class Level1 extends BasicGameState{
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		Controls.map = new TiledMap("res/level3/level3.tmx"); // Loading the level from a tilemap
-		Controls.init(gc, sbg); // For documentation Check "Controls" class		
-		Misc.init(gc, sbg);  // For documentation Check "Misc" class		
+		Controls.init(gc, sbg); // For documentation Check "Controls" class			
 	}
 
 	@Override
@@ -37,14 +35,12 @@ public class Level1 extends BasicGameState{
 		Camera.translate(gc, sbg, g);
 		Controls.map.render(0, 0);
 		Controls.render(gc, g);	
-		Misc.render(gc, g);
 	}
 
 	@Override
 	// Hier kommt game-logic des levels rein
 	public void update(GameContainer gc, StateBasedGame sbg, int t) throws SlickException {	
 		Controls.update(gc, sbg, t);
-		Misc.update(gc, sbg, t);
 	}
 
 	

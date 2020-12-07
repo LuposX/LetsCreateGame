@@ -20,6 +20,7 @@ import entities.player.Player;
 import items.weapons.ItemRevolver;
 import items.weapons.ItemSnowball;
 import main.Game;
+import menus.Settings;
 import utils.GameIsOver;
 import items.special.ItemTest;
 
@@ -63,6 +64,16 @@ public class Controls {
 		for(Entity en : entities) {
 			en.prepareDraw();
 			en.render(gc, g);
+			
+			// TODO: Move it maybe in another class??????
+			// Draw hitboxes of entities when devloper modus is activated
+			if (Settings.PREF.getBoolean("Developer_Mode", false) == true) {
+				try {
+					en.render_entity_hibox(gc, g);
+				} catch (Exception e) {
+					System.out.println(en.getClass() + " missing texture");
+				}
+			}
 		}
 		
 		//Zeichnen von GUIs

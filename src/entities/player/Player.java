@@ -29,9 +29,12 @@ public class Player extends Entity{
 	public int cooldownOnCollision = 100;
 	public int cooldownOnCollisionAktuell = cooldownOnCollision + 1;
 	
+	public int hitbox_sizeX;
+	public int hitbox_sizeY;
+	
 	public Player(float x, float y) {
 		super(x, y);
-		speed = 5;
+		speed = 10;
 		health = 5f;
 		inventory = new Inventory(this); // Create a Inventory for the player and give it the player instanz
 		
@@ -40,14 +43,6 @@ public class Player extends Entity{
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void render_player_hibox(GameContainer gc, Graphics g) {
-		/* Renders the Players Hitbox for debugging purpose
-		 * 
-		 */	
-		g.setColor(Color.pink);
-		g.draw(hitbox);
 	}
 	
 	public void render_health(GameContainer gc, Graphics g) {
@@ -150,7 +145,7 @@ public class Player extends Entity{
 	@Override
 	public void render(GameContainer gc, Graphics g) {	
 		g.setColor(Color.red);	
-		g.drawImage(image, drawX - 16, drawY - 28); 
+		g.drawImage(image, drawX - 16, drawY - 28);
 	}
 
 	@Override
