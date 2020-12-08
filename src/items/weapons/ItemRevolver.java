@@ -8,29 +8,30 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import entities.player.Inventory;
+import entities.projectile.special.ProjectileRevolver;
 import entities.projectile.special.ProjectileSnowball;
 import items.Item;
 import logic.Camera;
 import logic.Controls;
 
-public class ItemSnowball extends Item{
+public class ItemRevolver extends Item{
 	/* Snowball item
 	 * ------------
 	 * 
 	 */
 	
-	public static int cooldownMax = 300;
-	public static String itemName = "Snowballgun";
-	public static String itemDescription = "Active: \nthroughs a snowball \ninto your face";
+	public static int cooldownMax = 1000;
+	public static String itemName = "Revolver";
+	public static String itemDescription = "Active: \n Shoot grist into \n your enemy faces";
 	
-	public ItemSnowball() {
+	public ItemRevolver() {
 		super(itemName, itemDescription, cooldownMax);
 
-		try {
-			image = new Image("res/textures/items/snowgun.png");
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}
+		//try {
+		//		image = new Image("res/textures/items/snowgun.png");
+		//} catch (SlickException e) {
+		//	e.printStackTrace();
+		//}
 	}
 
 	@Override
@@ -39,7 +40,7 @@ public class ItemSnowball extends Item{
 
 	@Override
 	public void onActive(GameContainer gc, StateBasedGame sbg, int dt) {
-		Controls.entities.add(new ProjectileSnowball(currentInventory.player.posX, currentInventory.player.posY, Camera.getMouseX(gc.getInput())/Controls.tileSize, Camera.getMouseY(gc.getInput())/Controls.tileSize, currentInventory.player));
+		Controls.entities.add(new ProjectileRevolver(currentInventory.player.posX, currentInventory.player.posY, Camera.getMouseX(gc.getInput())/Controls.tileSize, Camera.getMouseY(gc.getInput())/Controls.tileSize, currentInventory.player));
 	}
 
 	@Override
@@ -53,6 +54,7 @@ public class ItemSnowball extends Item{
 
 	@Override
 	public void drawOnScreen(float x, float y, float width, float height, GameContainer gc, Graphics g) {
-		g.drawImage(image, x, y, x+width, y+height,0,0, 15,15); 
+		g.setColor(Color.red);
+		g.fillRect(x, y, width, height);
 	}
 }
