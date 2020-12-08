@@ -1,7 +1,14 @@
 package entities;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.geom.Rectangle;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -23,6 +30,7 @@ public abstract class Entity {
 	public float speed; //Eigenschaft die die Geschwindigkeit es Entitys bestimmen soll [Standart: 1]
 	public float aktuellerSpeed;
 	
+	public Image image; //Image of the Item
 	
 	/* Abstract Entity class
 	 * ----------
@@ -42,6 +50,15 @@ public abstract class Entity {
 	public abstract void update(GameContainer gc, StateBasedGame sbg, int dt); //Dient zum Updaten von Physik und Logik
 	public abstract void render(GameContainer gc, Graphics g); //Dient zum Zeichnen der Graphik
 	
+	public void render_entity_hibox(GameContainer gc, Graphics g) {
+		/* Renders the Entity Hitbox for debugging purpose
+		 * 
+		 */	
+		g.setColor(Color.pink);
+		g.draw(new Rectangle(drawX - 16, drawY - 28, image.getWidth(), image.getHeight()));
+	}
+	
+
 	// maybe rename this method 
 	// used to make the game frame independent
 	public void prepare_speed(int dt) {
@@ -68,6 +85,7 @@ public abstract class Entity {
 		 *  @return void
 		 */
 		health -= damage;
+
 	}
 	
 	public void runTo(float x, float y) {
