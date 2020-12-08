@@ -5,10 +5,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
-
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -58,7 +54,6 @@ public abstract class Entity {
 		g.draw(new Rectangle(drawX - 16, drawY - 28, image.getWidth(), image.getHeight()));
 	}
 	
-
 	// maybe rename this method 
 	// used to make the game frame independent
 	public void prepare_speed(int dt) {
@@ -79,13 +74,12 @@ public abstract class Entity {
 		//Hier nichts reinschreiben. In den Unterklassen (durch �berschreiben) implementieren
 	}
 	
-	public void damage(float damage) {
+	public float damage(float health) {
 		/*	gets executed when the player gets damage
-		 *  @param damage The damage the object takes
+		 *  @param health die health von dem entity das veringert werden soll
 		 *  @return void
 		 */
-		health -= damage;
-
+		return health - 1f;
 	}
 	
 	public void runTo(float x, float y) {

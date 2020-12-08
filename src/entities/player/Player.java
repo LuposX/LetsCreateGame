@@ -3,7 +3,6 @@ package entities.player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
@@ -12,40 +11,43 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.Font;
 
-import org.newdawn.slick.Input;
-import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.geom.Rectangle;
-import org.newdawn.slick.state.StateBasedGame;
-
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
-
 import entities.Entity;
 import entities.hostile.Hostile;
 import entities.projectile.special.ProjectileSnowball;
-
 import items.passive.SpeedItem;
-import javafx.geometry.Rectangle2D;
 import logic.CollisionControler;
 import logic.Controls;
 import main.Game;
 import menus.Settings;
+
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import net.java.games.input.Component.Identifier.Key;
 
-import org.newdawn.slick.Font;
 
 public class Player extends Entity{	
 	public Inventory inventory;
 	public int cooldownOnCollision = 100;
 	public int cooldownOnCollisionAktuell = cooldownOnCollision + 1;
 	
-	float maxHealth; //maximale Lebensanzahl
+	public Image image_health;
 	
 	public Player(float x, float y) {
 		super(x, y);
-		speed = 5;
-		maxHealth = 5f;
-		health = maxHealth;
+		speed = 10;
+		health = 5f;
 		inventory = new Inventory(this); // Create a Inventory for the player and give it the player instanz
+		
+		try {
+			image = new Image("res/textures/player/knight_f_hit_anim_f0_upscale.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			image_health = new Image("res/textures/player/ui_heart_full.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void render_health(GameContainer gc, Graphics g) {
@@ -55,7 +57,7 @@ public class Player extends Entity{
 		g.setColor(Color.red);
 		g.drawString("Player Health: ", 10, 40);
 		
-		for(int i = 0; i < maxHealth; i++) {
+		for(int i = 0; i < health; i++) {
 			float x = (10+(i % 5)*30);
 			float y = (60+(int)(i / 6)*70);
 			Rectangle healthBG = new Rectangle(x, y, 15, 15);
@@ -63,15 +65,6 @@ public class Player extends Entity{
 			//g.fill(healthBG);
 			//g.drawImage(image_health, x, y);
 			image_health.draw(x, y, 1.5f);
-	/*		
-  if(i < health) {
-				g.setColor(Color.red);
-			} else {
-				g.setColor(Color.gray);
-			}
-			
-			g.fill(healthBG);
-      */
 		}
 	}
 
@@ -148,7 +141,7 @@ public class Player extends Entity{
 	public void onCollision(Entity en, int dt) {
 		if (en instanceof Hostile) {
 			if (cooldownOnCollisionAktuell >= cooldownOnCollision) {
-				damage(1);
+				health = damage(health);
 				cooldownOnCollisionAktuell = 0;
 			} else {
 				cooldownOnCollisionAktuell += dt;
@@ -160,18 +153,10 @@ public class Player extends Entity{
 	public void render(GameContainer gc, Graphics g) {	
 		g.setColor(Color.red);	
 		g.drawImage(image, drawX - 16, drawY - 28);
-  /*
-	public void render(GameContainer gc, Graphics g) {
-		g.setColor(Color.red);
-		
-		shape = new Rectangle(drawX-10, drawY-10, 20, 20);
-		g.fill(shape);
-  */
 	}
 
 	@Override
 	public void updateHitbox() {
 		hitbox = new Rectangle(posX-16f/32, posY-28f/32, 32f/32, 56f/32);
-		//hitbox = new Rectangle(posX-10f/32, posY-10f/32, 20f/32, 20f/32);
 	}
 }

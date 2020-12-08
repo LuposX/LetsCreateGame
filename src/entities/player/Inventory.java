@@ -12,9 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import entities.ItemEntity;
 import items.Item;
-
 import items.passive.PassiveItem;
-
 import logic.Controls;
 
 public class Inventory {
@@ -163,7 +161,6 @@ public class Inventory {
 			
 			g.drawRect(30*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
 			g.drawRect(100*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
-
 			g.drawRect(240*drawUnit, 50*drawUnit, 50*drawUnit, 50*drawUnit);
 			
 			for(int i = 0; i < InventarSlots-3; i++) {
@@ -270,14 +267,12 @@ public class Inventory {
 		 * @return void 
 		 */
 		if(itemSlot != -1 && itemSlot < inventory.length && inventory[itemSlot] != null) {
-			Item item = inventory[itemSlot];			
+			Item item = inventory[itemSlot];
+			
+			item.onPassiveDeactivation();
 			
 			Controls.entities.add(new ItemEntity(player.posX, player.posY, item));
 			inventory[itemSlot] = null;
-			
-			//Last call of passive
-			item.onPassive();
-			
 			item.currentInventory = null;
 		}
 	}
