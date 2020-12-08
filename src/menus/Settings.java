@@ -9,6 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import main.Game;
 
+
 import java.util.prefs.Preferences;
 
 
@@ -34,12 +35,13 @@ public class Settings extends BasicGameState{
 		g.drawString("License: MIT", 780, 450);
 		g.drawString("Game Settings", 300, 260);
 		g.drawString("Developer Modus: " + DEVELOPER_MODE, 300, 300);
+
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int t) throws SlickException {
 		int posX = Mouse.getX();
 		int posY = Mouse.getY();
-		
+    
 		//Back button
 		if((posX > 25 && posX < 70) && (posY > 30 && posY < 55)){
 			//System.out.println("drauf");
@@ -73,6 +75,7 @@ public class Settings extends BasicGameState{
 			System.out.println("Developer mode: " + DEVELOPER_MODE);
 			}
 		}
+
 	} 
 
 	public int getID() {

@@ -17,19 +17,21 @@ import entities.Entity;
 import entities.ItemEntity;
 import entities.hostile.Slime;
 import entities.player.Player;
+
+import menus.Settings;
+import items.passive.SpeedItem;
 import items.weapons.ItemRevolver;
 import items.weapons.ItemSnowball;
 import main.Game;
-import menus.Settings;
 import utils.GameIsOver;
-import items.special.ItemTest;
+
 
 public class Controls {
 	
 	public static final float tileSize = 32;
 	
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
-	public static Player player = new Player(17, 10);
+	public static Player player = new Player(15, 10);
 		
 	public static TiledMap map;
 	
@@ -45,18 +47,18 @@ public class Controls {
 		
 		//Testweises hinzufuegen von Entities
 		entities.add(new Slime(14, 3));
-		entities.add(new ItemEntity(3, 3, new ItemTest()));
-		entities.add(new ItemEntity(5, 3, new ItemTest()));
-		entities.add(new ItemEntity(7, 3, new ItemTest()));
-		entities.add(new ItemEntity(9, 3, new ItemTest()));
-		entities.add(new ItemEntity(11, 3, new ItemTest()));
-		entities.add(new ItemEntity(13, 3, new ItemTest()));
-		entities.add(new ItemEntity(15, 3, new ItemTest()));
-		entities.add(new ItemEntity(17, 3, new ItemTest()));
-		entities.add(new ItemEntity(19, 3, new ItemTest()));
-		entities.add(new ItemEntity(21, 3, new ItemTest()));
-		entities.add(new ItemEntity(28, 5, new ItemSnowball()));
-		entities.add(new ItemEntity(19, 8, new ItemRevolver()));
+		entities.add(new ItemEntity(3, 3, new SpeedItem()));
+		entities.add(new ItemEntity(5, 3, new SpeedItem()));
+		entities.add(new ItemEntity(7, 3, new SpeedItem()));
+		entities.add(new ItemEntity(9, 3, new SpeedItem()));
+		entities.add(new ItemEntity(11, 3, new SpeedItem()));
+		entities.add(new ItemEntity(13, 3, new SpeedItem()));
+		entities.add(new ItemEntity(15, 3, new SpeedItem()));
+		entities.add(new ItemEntity(17, 3, new SpeedItem()));
+		entities.add(new ItemEntity(19, 3, new SpeedItem()));
+		entities.add(new ItemEntity(21, 3, new SpeedItem()));
+		entities.add(new ItemEntity(17, 6, new ItemSnowball()));
+		entities.add(new ItemEntity(19, 6, new ItemRevolver()));
 	}
 	
 	public static void render(GameContainer gc, Graphics g) {		
@@ -64,7 +66,6 @@ public class Controls {
 		for(Entity en : entities) {
 			en.prepareDraw();
 			en.render(gc, g);
-			
 			// TODO: Move it maybe in another class??????
 			// Draw hitboxes of entities when devloper modus is activated
 			if (Settings.PREF.getBoolean("Developer_Mode", false) == true) {
@@ -79,7 +80,7 @@ public class Controls {
 		//Zeichnen von GUIs
 		Camera.antiTranslate(gc, g);
 		player.inventory.render(gc, g);
-		player.render_health(gc, g); // used to render the health from the player
+		player.render_health(gc, g); // used to render the halth from the player
 		
 		// Does graphics when game is over
 		if(Game.gameIsOver) {

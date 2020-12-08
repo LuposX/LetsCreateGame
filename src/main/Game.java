@@ -21,6 +21,7 @@ public class Game extends StateBasedGame {
 	 *  Type Menus: "NAME_Menu"
 	 */
 	public static final String GAMENAME = "My Game";
+
 	public static final int START_MENU = 0; // we give out start Menu the id 0
 	public static final int CREDITS_MENU = 1;
 	public static final int LEVEL_MENU = 2;
