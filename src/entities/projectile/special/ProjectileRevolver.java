@@ -46,7 +46,7 @@ public class ProjectileRevolver extends Projectile {
 	@Override
 	public void onCollision(Entity en, int dt) {
 		if(en != owner) {
-			throw new UnsupportedOperationException("foix thios shit");
+			//throw new UnsupportedOperationException("foix thios shit");
 		}
 	}
 

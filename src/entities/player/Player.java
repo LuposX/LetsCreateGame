@@ -1,27 +1,13 @@
 package entities.player;
 
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.geom.Rectangle;
-import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.Font;
-
 import entities.Entity;
 import entities.hostile.Hostile;
-import entities.projectile.special.ProjectileSnowball;
-import items.passive.SpeedItem;
 import logic.CollisionControler;
 import logic.Controls;
 import main.Game;
-import menus.Settings;
-
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
-import net.java.games.input.Component.Identifier.Key;
+import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.state.StateBasedGame;
 
 
 public class Player extends Entity{	
@@ -59,7 +45,7 @@ public class Player extends Entity{
 		
 		for(int i = 0; i < health; i++) {
 			float x = (10+(i % 5)*30);
-			float y = (60+(int)(i / 6)*70);
+			float y = (60+(i / 6)*70);
 			Rectangle healthBG = new Rectangle(x, y, 15, 15);
 			
 			//g.fill(healthBG);
