@@ -1,15 +1,13 @@
 package entities.projectile.special;
 
 
+import entities.Entity;
+import entities.projectile.Projectile;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
-
-import entities.Entity;
-import entities.projectile.Projectile;
-import sun.awt.windows.WWindowPeer;
 
 public class ProjectileRevolver extends Projectile {
 
@@ -48,6 +46,7 @@ public class ProjectileRevolver extends Projectile {
 	@Override
 	public void onCollision(Entity en, int dt) {
 		if(en != owner) {
+			throw new UnsupportedOperationException("foix thios shit");
 		}
 	}
 
